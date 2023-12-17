@@ -14,4 +14,8 @@
    .hover-underline.active::after {
       @apply scale-x-100;
    }
+
+   .card-about {
+      @apply flex cursor-pointer flex-col items-center justify-center rounded bg-gray-400/25 px-5 py-5 backdrop-blur-lg transition-colors hover:bg-gray-600/70;
+   }
 }
