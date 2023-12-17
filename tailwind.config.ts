@@ -19,6 +19,7 @@ const config: Config = {
             secondary: "#144272",
             third: "#0A2647",
             fourth: "#2C74B3",
+            pink: "#fb8e80",
          },
       },
    },
