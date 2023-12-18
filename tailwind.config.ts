@@ -21,6 +21,9 @@ const config: Config = {
             fourth: "#2C74B3",
             pink: "#fb8e80",
          },
+         scale: {
+            102: "1.02",
+         },
       },
    },
    plugins: [],
