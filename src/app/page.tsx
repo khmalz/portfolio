@@ -58,20 +58,29 @@ export default function Home() {
 
          <section id="about" className="container">
             <div className="flex flex-col justify-between space-y-8 rounded-xl bg-secondary px-5 py-10 text-white shadow-xl md:flex-row md:space-x-8 md:space-y-0">
-               <div className="flex w-full flex-col bg-opacity-50 backdrop-blur-lg backdrop-filter md:w-1/2">
+               <div className="flex w-full flex-col space-y-5 bg-opacity-50 backdrop-blur-lg backdrop-filter md:w-1/2">
                   <div className="flex items-center self-start">
                      <div className="h-px w-10 flex-1 border bg-white"></div>
-                     <h4 className="mx-1 text-xl font-bold">About</h4>
+                     <h4 className="mx-1 text-3xl font-bold">About</h4>
                   </div>
-                  <h4 className="mt-2 md:text-xl">Hi, Khairul Akmal here.</h4>
-                  <p className="mt-3 text-justify text-sm md:text-base">
+                  <h4 className="md:text-xl">Hi, Khairul Akmal here.</h4>
+                  <p className="text-justify text-sm md:text-base">
                      I am a web developer who is dedicated to creating useful websites for the outside world. I live in East Jakarta, Indonesia, and I am currently a student at SMKN 46 Jakarta. Started learning programming in 2020, which until now
                      has continued to improve and upgrade technical skills.
                   </p>
-                  <p className="mt-5 text-justify text-sm md:text-base">
+                  <p className="text-justify text-sm md:text-base">
                      I started off as a front-end developer and ended up as a back-end developer because I love the challenges that are getting bigger and bigger. My favorite thing is turning source code into{" "}
                      <span className="font-semibold text-pink">clean</span> code.
                   </p>
+                  <a
+                     href="#"
+                     className="inline-flex items-center self-baseline rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-fourth focus:z-10 focus:text-fourth focus:outline-none focus:ring-4 focus:ring-gray-200">
+                     <svg className="me-2.5 h-3.5 w-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z" />
+                        <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" />
+                     </svg>
+                     Download CV
+                  </a>
                </div>
 
                <div className="flex w-full items-center md:w-1/2">
@@ -173,7 +182,7 @@ export default function Home() {
             <div className="flex flex-col">
                <div className="flex items-center self-start">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
-                  <h4 className="mx-1 text-xl font-bold">Certificate</h4>
+                  <h4 className="mx-1 text-3xl font-bold">Certificate</h4>
                </div>
                <div className="mt-10 flex flex-col">
                   <Tab.Group vertical>
@@ -210,6 +219,63 @@ export default function Home() {
                         </Tab.Panels>
                      </div>
                   </Tab.Group>
+               </div>
+            </div>
+         </section>
+
+         <section id="experience" className="container mt-10 py-10 text-white">
+            <div className="flex flex-col">
+               <div className="flex items-center self-baseline">
+                  <div className="h-px w-10 flex-1 border bg-white"></div>
+                  <h4 className="mx-1 text-3xl font-bold">Experience</h4>
+               </div>
+               <div className="mt-16 w-full">
+                  <ol className="relative ml-8 border-s border-gray-200">
+                     <li className="mb-10 ms-10">
+                        <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white">
+                           <svg
+                              className="h-2.5 w-2.5 text-secondary"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round">
+                              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                              <line x1="8" y1="21" x2="16" y2="21"></line>
+                              <line x1="12" y1="17" x2="12" y2="21"></line>
+                           </svg>
+                        </span>
+                        <h3 className="mb-1 text-lg font-semibold text-white">PT. Indi Teknokreasi Internasional</h3>
+                        <time className="mb-2 block text-xs font-normal leading-none text-slate-300 md:text-sm">Februari 2023 - Mei 2023</time>
+                        <p className="text-base font-normal text-slate-200">Web Developer</p>
+                     </li>
+                     <li className="ms-10">
+                        <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white">
+                           <svg
+                              className="h-2.5 w-2.5 text-secondary"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round">
+                              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                              <line x1="8" y1="21" x2="16" y2="21"></line>
+                              <line x1="12" y1="17" x2="12" y2="21"></line>
+                           </svg>
+                        </span>
+                        <h3 className="mb-1 text-lg font-semibold text-white">PT. Rajawali Telekomunikasi Selular</h3>
+                        <time className="mb-2 block text-xs font-normal leading-none text-slate-300 md:text-sm">Agustus 2022 - November 2022</time>
+                        <p className="text-base font-normal text-slate-200">Web Developer</p>
+                     </li>
+                  </ol>
                </div>
             </div>
          </section>
