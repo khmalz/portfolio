@@ -181,7 +181,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="certificate" className="container mt-5 py-10 text-white md:mt-10">
+         <section id="certificate" className="container mt-5 py-10 md:mt-10">
             <div className="flex flex-col">
                <div className="flex items-center self-start">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
@@ -226,7 +226,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="experience" className="container mt-5 py-10 text-white md:mt-10">
+         <section id="experience" className="container mt-5 py-10 md:mt-10">
             <div className="flex flex-col">
                <div className="flex items-center self-baseline">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
@@ -283,7 +283,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="project" className="container mt-5 py-10 text-white md:mt-10">
+         <section id="project" className="container mt-5 py-10 md:mt-10">
             <div className="flex flex-col">
                <div className="flex items-center self-baseline">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
@@ -349,7 +349,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="contact" className="container mt-5 py-10 text-white md:mt-10">
+         <section id="contact" className="container mt-5 py-10 md:mt-10">
             <div className="flex flex-col">
                <div className="flex items-center self-baseline">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
@@ -393,6 +393,14 @@ export default function Home() {
                </div>
             </div>
          </section>
+
+         <footer className="container bg-third">
+            <div className="flex w-full items-center justify-center py-6">
+               <span className="text-sm">
+                  © 2023 with ❤️ by <span className="text-pink">Khairul Akmal</span>. All Rights Reserved.
+               </span>
+            </div>
+         </footer>
       </>
    );
 }
