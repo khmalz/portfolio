@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
 
 const poppins = Poppins({

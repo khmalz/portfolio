@@ -1,40 +1,20 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
+import certificatesCollection from "@/docs/Certificates";
+import { CertificateType } from "@/types/CertificateType";
 import { Tab } from "@headlessui/react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
 
-type CertificateType = {
-   title: string;
-   image: string;
-};
-
-const certificates: CertificateType[] = [
-   {
-      title: "IT Software Solution for Business - LKS Tingkat Kota Jakarta Timur 2023",
-      image: "/image/IT-Software-2023.webp",
-   },
-   {
-      title: "Cloud Computing Club Competiton - Regional DKI Jakarta",
-      image: "/image/Sagasitas-CloudCompetition.webp",
-   },
-   {
-      title: "Web Development Technifest",
-      image: "/image/Technifest.webp",
-   },
-   {
-      title: "IT Software Solution for Business - LKS Tingkat Wilayah 1 Jakarta Timur 2022",
-      image: "/image/IT-Software-2022.webp",
-   },
-];
+const Lightbox = dynamic(() => import("yet-another-react-lightbox"), { ssr: false });
 
 export default function Home() {
    const typeText = useRef(null);
    const [open, setOpen] = useState(false);
+   const [certificates] = useState<CertificateType[]>(certificatesCollection);
 
    useEffect(() => {
       const typed = new Typed(typeText.current, {
@@ -214,7 +194,7 @@ export default function Home() {
                         <Tab.Panels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
                            {certificates.map((certificate: CertificateType, index) => (
                               <Tab.Panel key={index} className="w-full rounded-lg bg-white p-4 md:w-[580px]">
-                                 <Image width={500} height={400} className="w-full cursor-pointer rounded-lg border object-cover shadow-md" src={certificate.image} alt={certificate.title} onClick={() => setOpen(true)} />
+                                 <Image loading="lazy" width={500} height={400} className="w-full cursor-pointer rounded-lg border object-cover shadow-md" src={certificate.image} alt={certificate.title} onClick={() => setOpen(true)} />
                                  <Lightbox
                                     styles={{ container: { backgroundColor: "rgba(0, 0, 0, .85)" } }}
                                     render={{
