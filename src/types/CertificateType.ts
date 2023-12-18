@@ -1,4 +1,4 @@
-export type CertificateType = {
+export type certificateType = {
    title: string;
    image: string;
 };

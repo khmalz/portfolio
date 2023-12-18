@@ -1,6 +1,6 @@
-import { CertificateType } from "@/types/CertificateType";
+import { certificateType } from "@/types/certificateType";
 
-const certificatesCollection: CertificateType[] = [
+const certificatesCollection: certificateType[] = [
    {
       title: "IT Software Solution for Business - LKS Tingkat Kota Jakarta Timur 2023",
       image: "/image/IT-Software-2023.webp",
