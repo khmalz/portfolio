@@ -59,7 +59,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="about" className="container">
+         <section id="about" className="container pt-16">
             <div className="flex flex-col justify-between space-y-8 rounded-xl bg-secondary px-5 py-10 text-white shadow-xl md:flex-row md:space-x-8 md:space-y-0">
                <div className="flex w-full flex-col space-y-5 bg-opacity-50 backdrop-blur-lg backdrop-filter md:w-1/2">
                   <div className="flex items-center self-start">
@@ -181,7 +181,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="certificate" className="container mt-5 py-10 md:mt-10">
+         <section id="certificate" className="container mt-5 py-10 pt-16 md:mt-10">
             <div className="flex flex-col">
                <div className="flex items-center self-start">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
@@ -226,7 +226,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="experience" className="container mt-5 py-10 md:mt-10">
+         <section id="experience" className="container mt-5 py-10 pt-16 md:mt-10">
             <div className="flex flex-col">
                <div className="flex items-center self-baseline">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
@@ -239,17 +239,17 @@ export default function Home() {
                            <svg
                               className="h-2.5 w-2.5 text-secondary"
                               xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
+                              width={24}
+                              height={24}
                               viewBox="0 0 24 24"
                               fill="currentColor"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round">
-                              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                              <line x1="8" y1="21" x2="16" y2="21"></line>
-                              <line x1="12" y1="17" x2="12" y2="21"></line>
+                              strokeWidth={2}
+                              strokeLinecap="round"
+                              strokeLinejoin="round">
+                              <rect x={2} y={3} width={20} height={14} rx={2} ry={2} />
+                              <line x1={8} y1={21} x2={16} y2={21} />
+                              <line x1={12} y1={17} x2={12} y2={21} />
                            </svg>
                         </span>
                         <h3 className="mb-1 text-lg font-semibold text-white">PT. Indi Teknokreasi Internasional</h3>
@@ -261,17 +261,17 @@ export default function Home() {
                            <svg
                               className="h-2.5 w-2.5 text-secondary"
                               xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
+                              width={24}
+                              height={24}
                               viewBox="0 0 24 24"
                               fill="currentColor"
                               stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"
-                              stroke-linejoin="round">
-                              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                              <line x1="8" y1="21" x2="16" y2="21"></line>
-                              <line x1="12" y1="17" x2="12" y2="21"></line>
+                              strokeWidth={2}
+                              strokeLinecap="round"
+                              strokeLinejoin="round">
+                              <rect x={2} y={3} width={20} height={14} rx={2} ry={2} />
+                              <line x1={8} y1={21} x2={16} y2={21} />
+                              <line x1={12} y1={17} x2={12} y2={21} />
                            </svg>
                         </span>
                         <h3 className="mb-1 text-lg font-semibold text-white">PT. Rajawali Telekomunikasi Selular</h3>
@@ -283,7 +283,7 @@ export default function Home() {
             </div>
          </section>
 
-         <section id="project" className="container mt-5 py-10 md:mt-10">
+         <section id="project" className="container mt-5 py-10 pt-16 md:mt-10">
             <div className="flex flex-col">
                <div className="flex items-center self-baseline">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
@@ -291,7 +291,7 @@ export default function Home() {
                </div>
                <div className="mx-auto mt-14 grid grid-cols-1 gap-8 md:mx-0 md:grid-cols-2 xl:grid-cols-3">
                   {projects.map((project: projectType, index: number | string) => (
-                     <div key={index} className="hover:scale-102 group flex max-w-md flex-col justify-between overflow-hidden rounded-lg bg-white shadow transition-transform duration-300">
+                     <div key={index} className="hover:scale-102 group flex max-w-md flex-col justify-between overflow-hidden rounded-lg bg-secondary shadow backdrop-blur-md transition-transform duration-300">
                         <div>
                            {project.image === "placeholder" ? (
                               <div className="flex h-52 w-auto items-center justify-center bg-gray-400">
@@ -306,7 +306,7 @@ export default function Home() {
                            )}
 
                            <div className="p-5">
-                              <h5 className="text-xl font-bold tracking-tight text-gray-900">{project.title}</h5>
+                              <h5 className="text-xl font-bold tracking-tight">{project.title}</h5>
                               <div className="my-3">
                                  {project.tech.map((tag: string, index: number | string) => (
                                     <span key={index} className="mr-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:bg-gray-200/90">
@@ -314,7 +314,7 @@ export default function Home() {
                                     </span>
                                  ))}
                               </div>
-                              <p className="text-sm font-normal text-gray-700 md:text-base">{project.description}</p>
+                              <p className="text-sm font-normal text-slate-100 md:text-base">{project.description}</p>
                            </div>
                         </div>
                         <div className="flex space-x-3 px-5 pb-4 pt-2">
@@ -333,10 +333,10 @@ export default function Home() {
                                  href={project.demo}
                                  className="inline-flex items-center rounded-lg bg-third px-3 py-2 text-center text-xs font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300 md:text-sm">
                                  <svg viewBox="0 0 24 24" focusable="false" xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="currentColor" className="mr-2 inline-block">
-                                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
-                                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                       <path d="M15 3h6v6"></path>
-                                       <path d="M10 14L21 3"></path>
+                                    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth={2}>
+                                       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                       <path d="M15 3h6v6" />
+                                       <path d="M10 14L21 3" />
                                     </g>
                                  </svg>
                                  View Demo
@@ -394,8 +394,8 @@ export default function Home() {
             </div>
          </section>
 
-         <footer className="container bg-third">
-            <div className="flex w-full items-center justify-center py-6">
+         <footer className="w-full bg-third">
+            <div className="flex items-center justify-center py-6">
                <span className="text-sm">
                   © 2023 with ❤️ by <span className="text-pink">Khairul Akmal</span>. All Rights Reserved.
                </span>

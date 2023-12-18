@@ -1,5 +1,6 @@
 "use client";
 
+import { navLinkType } from "@/types/navLinkType";
 import { Menu, Transition } from "@headlessui/react";
 import moment from "moment";
 import { Fragment, useEffect, useState } from "react";
@@ -15,32 +16,13 @@ export default function Navbar() {
       return () => clearInterval(timeInterval);
    }, []);
 
-   const navLink = [
-      {
-         text: "Home",
-         link: "#home",
-         active: true,
-      },
-      {
-         text: "About",
-         link: "#about",
-         active: false,
-      },
-      {
-         text: "Skill",
-         link: "#skill",
-         active: false,
-      },
-      {
-         text: "Project",
-         link: "#project",
-         active: false,
-      },
-      {
-         text: "Experience",
-         link: "#experience",
-         active: false,
-      },
+   const navLink: navLinkType[] = [
+      { text: "Home", link: "#home" },
+      { text: "About", link: "#about" },
+      { text: "Certificate", link: "#certificate" },
+      { text: "Experience", link: "#experience" },
+      { text: "Project", link: "#project" },
+      { text: "Contact", link: "#contact" },
    ];
 
    return (
@@ -70,7 +52,7 @@ export default function Navbar() {
                               {navLink.map((item, index) => (
                                  <Menu.Item key={index}>
                                     {({ active }) => (
-                                       <a href={item.link} className={`${active || item.active ? "bg-fourth text-white" : "text-gray-900"} group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm`}>
+                                       <a href={item.link} className={`${active ? "bg-fourth text-white" : "text-gray-900"} group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm`}>
                                           {item.text}
                                        </a>
                                     )}
@@ -83,9 +65,9 @@ export default function Navbar() {
                </div>
                <div className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto">
                   <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium  md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
-                     {navLink.map((item, index) => (
+                     {navLink.map((item: navLinkType, index: number) => (
                         <li key={index}>
-                           <a href={item.link} className={`hover-underline ${item.active && "active"}`}>
+                           <a href={item.link} className="hover-underline">
                               {item.text}
                            </a>
                         </li>
