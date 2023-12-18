@@ -1,3 +1,5 @@
+"use client";
+
 import { Menu, Transition } from "@headlessui/react";
 import moment from "moment";
 import { Fragment, useEffect, useState } from "react";

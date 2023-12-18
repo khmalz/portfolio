@@ -20,6 +20,10 @@ const config: Config = {
             third: "#0A2647",
             fourth: "#2C74B3",
             pink: "#fb8e80",
+            gmail: "#EA4335",
+            github: "#181717",
+            instagram: "#E4405F",
+            linkedin: "#0A66C2",
          },
          scale: {
             102: "1.02",
