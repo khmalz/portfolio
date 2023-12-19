@@ -2,11 +2,11 @@ import { projectType } from "@/types/projectType";
 
 const projectsCollection: projectType[] = [
    {
-      image: "placeholder",
+      image: "/images/projects/portfolio.webp",
       title: "Portfolio",
       tech: ["NextJS", "Tailwind CSS"],
       description: "Personal website and porfolio",
-      github: "#",
+      github: "https://github.com/khmalz/portfolio",
       demo: "#",
    },
    {
