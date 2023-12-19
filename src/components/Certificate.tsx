@@ -36,13 +36,13 @@ export default function CertificateSection() {
                      </Tab.List>
                      <Tab.Panels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
                         {certificates.map((certificate: certificateType, index) => (
-                           <Tab.Panel key={index} className="w-full rounded-lg bg-white p-4 md:w-[580px]">
+                           <Tab.Panel key={index} className="md:w-145 rounded-lg bg-white p-4">
                               <Image
                                  onLoad={() => setIsImageLoaded(true)}
                                  loading="lazy"
                                  width={500}
                                  height={400}
-                                 className={`w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500 ${isImageLoaded ? "filter-none" : "blur-[10px] filter"}`}
+                                 className={`w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500 ${isImageLoaded ? "filter-none" : "blur-sm filter"}`}
                                  src={certificate.image}
                                  alt={certificate.title}
                                  onClick={() => setOpen(true)}

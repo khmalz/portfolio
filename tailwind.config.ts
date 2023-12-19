@@ -14,6 +14,13 @@ const config: Config = {
          },
       },
       extend: {
+         maxWidth: {
+            "10": "2.5rem",
+         },
+         width: {
+            "144": "36rem",
+            "145": "36.25rem",
+         },
          colors: {
             primary: "#205295",
             secondary: "#144272",
