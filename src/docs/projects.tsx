@@ -7,7 +7,7 @@ const projectsCollection: projectType[] = [
       tech: ["NextJS", "Tailwind CSS"],
       description: "Personal website and porfolio",
       github: "https://github.com/khmalz/portfolio",
-      demo: "#",
+      demo: "https://khmalz-portfolio.vercel.app",
    },
    {
       image: "/images/projects/tefa-digital.webp",
