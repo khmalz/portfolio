@@ -1,6 +1,6 @@
 import { experienceType } from "@/types/experienceType";
 
-export const experiencesCollection: experienceType[] = [
+const experiencesCollection: experienceType[] = [
    {
       companyName: "PT. Indi Teknokreasi Internasional",
       position: "Web Developer",
@@ -14,3 +14,5 @@ export const experiencesCollection: experienceType[] = [
       endDate: "November 2022",
    },
 ];
+
+export default experiencesCollection;

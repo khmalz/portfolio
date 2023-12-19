@@ -1,4 +1,4 @@
-import { experiencesCollection } from "@/docs/experiences";
+import experiencesCollection from "@/docs/experiences";
 import { experienceType } from "@/types/experienceType";
 import { useState } from "react";
 

@@ -1,4 +1,4 @@
-import { certificatesCollection } from "@/docs/certificates";
+import certificatesCollection from "@/docs/certificates";
 import { certificateType } from "@/types/certificateType";
 import { Tab } from "@headlessui/react";
 import dynamic from "next/dynamic";

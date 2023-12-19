@@ -1,4 +1,4 @@
-import { projectsCollection } from "@/docs/projects";
+import projectsCollection from "@/docs/projects";
 import { projectType } from "@/types/projectType";
 import Image from "next/image";
 import { useState } from "react";
