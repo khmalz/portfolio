@@ -4,13 +4,13 @@ const experiencesCollection: experienceType[] = [
    {
       companyName: "PT. Indi Teknokreasi Internasional",
       position: "Web Developer",
-      startDate: "Februari 2023",
-      endDate: "Mei 2023",
+      startDate: "February 2023",
+      endDate: "May 2023",
    },
    {
       companyName: "PT. Rajawali Telekomunikasi Selular",
       position: "Web Developer",
-      startDate: "Agustus 2022",
+      startDate: "August 2022",
       endDate: "November 2022",
    },
 ];
