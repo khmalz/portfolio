@@ -14,7 +14,7 @@ export default function ProjectSection() {
                <h4 className="mx-1 text-3xl font-bold">Project</h4>
             </div>
             <div className="mx-auto mt-14 grid grid-cols-1 gap-8 md:mx-0 md:grid-cols-2 xl:grid-cols-3">
-               {projects.map((project: projectType, index: number | string) => (
+               {projects.map((project: projectType, index: number) => (
                   <div key={index} className="group flex max-w-md flex-col justify-between overflow-hidden rounded-lg bg-secondary shadow backdrop-blur-md transition-transform duration-300 hover:scale-102">
                      <div>
                         {project.image === "placeholder" ? (
@@ -32,7 +32,7 @@ export default function ProjectSection() {
                         <div className="p-5">
                            <h5 className="text-xl font-bold tracking-tight">{project.title}</h5>
                            <div className="my-3">
-                              {project.tech.map((tag: string, index: number | string) => (
+                              {project.tech.map((tag: string, index: number) => (
                                  <span key={index} className="mr-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:bg-gray-200/90">
                                     {tag}
                                  </span>
