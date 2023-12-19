@@ -1,20 +1,12 @@
 "use client";
 
+import useCurrentTime from "@/hooks/useCurrentTime";
 import { navLinkType } from "@/types/navLinkType";
 import { Menu, Transition } from "@headlessui/react";
-import moment from "moment";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 export default function Navbar() {
-   const [currentTime, setCurrentTime] = useState(moment().format("HH:mm"));
-
-   useEffect(() => {
-      const timeInterval = setInterval(() => {
-         setCurrentTime(moment().format("HH:mm"));
-      }, 60000);
-
-      return () => clearInterval(timeInterval);
-   }, []);
+   const currentTime = useCurrentTime();
 
    const navLink: navLinkType[] = [
       { text: "Home", link: "#home" },
