@@ -1,6 +1,6 @@
 import { certificateType } from "@/types/certificateType";
 
-const certificatesCollection: certificateType[] = [
+export const certificatesCollection: certificateType[] = [
    {
       title: "IT Software Solution for Business - LKS Tingkat Kota Jakarta Timur 2023",
       image: "/images/certificates/IT-Software-2023.webp",
@@ -18,5 +18,3 @@ const certificatesCollection: certificateType[] = [
       image: "/images/certificates/IT-Software-2022.webp",
    },
 ];
-
-export default certificatesCollection;

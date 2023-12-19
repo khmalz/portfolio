@@ -1,6 +1,6 @@
 import { projectType } from "@/types/projectType";
 
-const projectsCollection: projectType[] = [
+export const projectsCollection: projectType[] = [
    {
       image: "/images/projects/portfolio.webp",
       title: "Portfolio",
@@ -46,5 +46,3 @@ const projectsCollection: projectType[] = [
       github: "https://github.com/khmalz/kompensasi-dan-benefit-karyawan",
    },
 ];
-
-export default projectsCollection;

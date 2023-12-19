@@ -1,4 +1,4 @@
-import certificatesCollection from "@/docs/certificates";
+import { certificatesCollection } from "@/docs/certificates";
 import { certificateType } from "@/types/certificateType";
 import { Tab } from "@headlessui/react";
 import dynamic from "next/dynamic";
@@ -36,7 +36,7 @@ export default function CertificateSection() {
                      </Tab.List>
                      <Tab.Panels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
                         {certificates.map((certificate: certificateType, index) => (
-                           <Tab.Panel key={index} className="md:w-145 rounded-lg bg-white p-4">
+                           <Tab.Panel key={index} className="rounded-lg bg-white p-4 md:w-145">
                               <Image
                                  onLoad={() => setIsImageLoaded(true)}
                                  loading="lazy"

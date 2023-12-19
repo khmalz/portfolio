@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SvgTech from "./SvgTech";
-import techsCollection from "@/docs/techs";
 import { svgTechType } from "@/types/svgTechType";
+import { techsCollection } from "@/docs/techs";
 
 export default function AboutSection() {
    const [techs] = useState<svgTechType[]>(techsCollection);
