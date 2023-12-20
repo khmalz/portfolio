@@ -59,9 +59,9 @@ export const metadata: Metadata = {
    },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children, params: { lang } }: { children: React.ReactNode; params: { lang: any } }) {
    return (
-      <html lang="en">
+      <html lang={lang}>
          <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
       </html>
    );
