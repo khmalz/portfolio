@@ -1,12 +1,14 @@
 import certificatesCollection from "@/docs/certificates";
 import { certificateType } from "@/types/certificateType";
 import { Tab } from "@headlessui/react";
+import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
 const Lightbox = dynamic(() => import("yet-another-react-lightbox"), { ssr: false });
 
 export default function CertificateSection() {
+   const trlns = useTranslations("certificate");
    const [certificates] = useState<certificateType[]>(certificatesCollection);
    const [isImageLoaded, setIsImageLoaded] = useState(false);
    const [open, setOpen] = useState(false);
@@ -16,7 +18,7 @@ export default function CertificateSection() {
          <div className="flex flex-col">
             <div className="flex items-center self-start">
                <div className="h-px w-10 flex-1 border bg-white"></div>
-               <h4 className="mx-1 text-3xl font-bold">Certificate</h4>
+               <h4 className="mx-1 text-3xl font-bold">{trlns("title")}</h4>
             </div>
             <div className="mt-10 flex flex-col">
                <Tab.Group vertical>

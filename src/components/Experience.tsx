@@ -1,8 +1,11 @@
 import experiencesCollection from "@/docs/experiences";
+import TranslatedStringDate from "@/helpers/TranslatedStringDate";
 import { experienceType } from "@/types/experienceType";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function ExperienceSection() {
+   const trlns = useTranslations("experience");
    const [experiences] = useState<experienceType[]>(experiencesCollection);
 
    return (
@@ -10,7 +13,7 @@ export default function ExperienceSection() {
          <div className="flex flex-col">
             <div className="flex items-center self-baseline">
                <div className="h-px w-10 flex-1 border bg-white"></div>
-               <h4 className="mx-1 text-3xl font-bold">Experience</h4>
+               <h4 className="mx-1 text-3xl font-bold">{trlns("title")}</h4>
             </div>
             <div className="mt-14 w-full">
                <ol className="relative ml-8 border-s border-gray-200">
@@ -34,7 +37,9 @@ export default function ExperienceSection() {
                            </svg>
                         </span>
                         <h3 className="mb-1 text-lg font-semibold text-white">{experience.companyName}</h3>
-                        <time className="mb-2 block text-xs font-normal leading-none text-slate-300 md:text-sm">{`${experience.startDate} - ${experience.endDate}`}</time>
+                        <time className="mb-2 block text-xs font-normal leading-none text-slate-300 md:text-sm">
+                           {TranslatedStringDate(experience.startDate)} - {TranslatedStringDate(experience.endDate)}
+                        </time>
                         <p className="text-base font-normal text-slate-200">{experience.position}</p>
                      </li>
                   ))}

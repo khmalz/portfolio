@@ -1,20 +1,18 @@
-"use client";
-
-import useCurrentTime from "@/hooks/useCurrentTime";
 import { navLinkType } from "@/types/navLinkType";
 import { Menu, Transition } from "@headlessui/react";
+import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 
 export default function Navbar() {
-   const currentTime = useCurrentTime();
+   const trlns = useTranslations("navbar");
 
    const navLink: navLinkType[] = [
       { text: "Home", link: "#home" },
-      { text: "About", link: "#about" },
-      { text: "Certificate", link: "#certificate" },
-      { text: "Experience", link: "#experience" },
-      { text: "Project", link: "#project" },
-      { text: "Contact", link: "#contact" },
+      { text: trlns("about"), link: "#about" },
+      { text: trlns("certificate"), link: "#certificate" },
+      { text: trlns("experience"), link: "#experience" },
+      { text: trlns("project"), link: "#project" },
+      { text: trlns("contact"), link: "#contact" },
    ];
 
    return (
@@ -22,7 +20,7 @@ export default function Navbar() {
          <div className="container mx-auto">
             <div className="flex items-center justify-between py-4">
                <div className="flex w-full justify-between space-x-3 md:order-2 md:w-auto md:justify-start md:space-x-0">
-                  <div className="rounded-lg bg-fourth px-4  py-2 text-center text-sm font-medium text-white">{currentTime}</div>
+                  <div className="rounded-lg bg-fourth px-4  py-2 text-center text-sm font-medium text-white">23:20</div>
                   <Menu as="div" className="relative inline-block text-left md:hidden">
                      <div>
                         <Menu.Button className="inline-flex w-full justify-center rounded-md bg-white/20 px-4 py-2 text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
@@ -44,7 +42,7 @@ export default function Navbar() {
                               {navLink.map((item, index) => (
                                  <Menu.Item key={index}>
                                     {({ active }) => (
-                                       <a href={item.link} className={`${active ? "bg-fourth text-white" : "text-gray-900"} group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm`}>
+                                       <a href={item.link} className={`${active ? "bg-fourth text-white" : "text-gray-900"} group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm capitalize`}>
                                           {item.text}
                                        </a>
                                     )}
@@ -59,7 +57,7 @@ export default function Navbar() {
                   <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium  md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
                      {navLink.map((item: navLinkType, index: number) => (
                         <li key={index}>
-                           <a href={item.link} className="hover-underline">
+                           <a href={item.link} className="hover-underline capitalize">
                               {item.text}
                            </a>
                         </li>

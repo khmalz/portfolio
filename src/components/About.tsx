@@ -2,8 +2,10 @@ import { useState } from "react";
 import SvgTech from "./SvgTech";
 import { svgTechType } from "@/types/svgTechType";
 import techsCollection from "@/docs/techs";
+import { useTranslations } from "next-intl";
 
 export default function AboutSection() {
+   const trlns = useTranslations("about");
    const [techs] = useState<svgTechType[]>(techsCollection);
 
    return (
@@ -12,16 +14,12 @@ export default function AboutSection() {
             <div className="flex w-full flex-col space-y-5 bg-opacity-50 backdrop-blur-lg backdrop-filter md:w-1/2">
                <div className="flex items-center self-start">
                   <div className="h-px w-10 flex-1 border bg-white"></div>
-                  <h4 className="mx-1 text-3xl font-bold">About</h4>
+                  <h4 className="mx-1 text-3xl font-bold">{trlns("title")}</h4>
                </div>
-               <h4 className="md:text-xl">Hi, Khairul Akmal here.</h4>
+               <h4 className="md:text-xl">{trlns("greeting", { name: "Khairul Akmal" })}</h4>
+               <p className="text-justify text-sm md:text-base">{trlns("description.one")}</p>
                <p className="text-justify text-sm md:text-base">
-                  I am a web developer who is dedicated to creating useful websites for the outside world. I live in East Jakarta, Indonesia, and I am currently a student at SMKN 46 Jakarta. Started learning programming in 2020, which until now has
-                  continued to improve and upgrade technical skills.
-               </p>
-               <p className="text-justify text-sm md:text-base">
-                  I started off as a front-end developer and ended up as a back-end developer because I love the challenges that are getting bigger and bigger. My favorite thing is turning source code into{" "}
-                  <span className="font-semibold text-pink">clean</span> code.
+                  {trlns("description.two")} <span className="font-semibold text-pink">clean</span> code.
                </p>
                <a
                   target="_blank"

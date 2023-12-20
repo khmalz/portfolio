@@ -1,0 +1,26 @@
+{
+   "experience": { "title": "Experience" },
+   "project": {
+      "foursichology": { "description": "A school reporting platform that allows students to report bullying crimes at school. The project is aiming to create a safe and supportive educational environment" },
+      "kompensasi_dan_benefit_karyawan": { "description": "A website that efficiently manages employee benefits and perks, improving well-being and satisfaction in the work environment" },
+      "portfolio": { "description": "Personal website and portfolio" },
+      "quicktick": { "description": "An easy-to-use travel/bus ticket booking platform. The main goal is to simplify the ticket booking process, providing a fast, efficient user experience" },
+      "service_tools": { "description": "An electronic appliance repair reservation platform. The project is designed to provide an efficient solution for users in need of appliance repair, with the option of in-shop or at-home repair" },
+      "tefa_digital": {
+         "description": "An e-commerce platform that gives students the opportunity to offer their digital services for sale. The objective is to encourage students to channel their talents and skills into the community through practical learning experiences"
+      },
+      "title": "Project"
+   },
+   "navbar": { "about": "About Me", "certificate": "Certificate", "contact": "Contact", "experience": "Experience", "project": "Project" },
+   "certificate": { "title": "Certificate" },
+   "home": { "me": "I am", "student": "Student", "welcome": "Welcome" },
+   "about": {
+      "description": {
+         "one": " I am a web developer who is dedicated to creating useful websites for the outside world. I live in East Jakarta, Indonesia, and I am currently a student at SMKN 46 Jakarta. Started learning programming in 2020, which until now has continued to improve and upgrade technical skills.",
+         "two": " I started off as a front-end developer and ended up as a back-end developer because I love the challenges that are getting bigger and bigger. My favorite thing is turning source code into"
+      },
+      "greeting": "Hi, {name} here",
+      "title": "About Me"
+   },
+   "contact": { "solicitation": "Lets get in touch", "text": "Feel free to reach out to me. I am always open to new <pink>opportunities</pink>", "title": "contact" }
+}
