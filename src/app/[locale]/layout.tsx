@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
+import { dir } from "i18next";
+import i18nConfig from "../../../i18nConfig";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -59,9 +61,13 @@ export const metadata: Metadata = {
    },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export function generateStaticParams() {
+   return i18nConfig.locales.map(locale => ({ locale }));
+}
+
+export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
    return (
-      <html lang="en">
+      <html lang="en" dir={dir(locale)}>
          <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
       </html>
    );
