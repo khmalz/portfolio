@@ -1,14 +1,14 @@
 import createMiddleware from "next-intl/middleware";
+import { locales, localePrefix } from "./navigation";
 
 export default createMiddleware({
-   locales: ["en-US", "id-ID"],
+   locales,
+   localePrefix,
    localeDetection: false,
-   defaultLocale: "id-ID",
+   defaultLocale: "en",
 });
 
+// only applies this middleware to files in the app directory
 export const config = {
-   // Skip all paths that should not be internationalized.
-   // This skips the folders "api", "_next" and all files
-   // with an extension (e.g. favicon.ico)
    matcher: ["/((?!api|_next|.*\\..*).*)"],
 };

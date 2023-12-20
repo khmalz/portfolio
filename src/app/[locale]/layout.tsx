@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
+import { locales } from "@/navigation";
+import { notFound, redirect } from "next/navigation";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextResponse } from "next/server";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -59,10 +63,18 @@ export const metadata: Metadata = {
    },
 };
 
-export default function RootLayout({ children, params: { lang } }: { children: React.ReactNode; params: { lang: any } }) {
+export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: any } }) {
+   if (!locales.includes(locale)) {
+      NextResponse.redirect("/");
+   }
+
+   const messages = useMessages();
+
    return (
-      <html lang={lang}>
-         <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
+      <html lang={locale}>
+         <NextIntlClientProvider locale={locale} messages={messages}>
+            <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
+         </NextIntlClientProvider>
       </html>
    );
 }
