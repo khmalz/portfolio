@@ -1,18 +1,27 @@
+import { useTranslations } from "next-intl";
+
 export default function ContactSection() {
+   const trlns = useTranslations("contact");
+
    return (
       <section id="contact" className="container mt-5 py-10 md:mt-10">
          <div className="flex flex-col">
             <div className="flex items-center self-baseline">
                <div className="h-px w-10 flex-1 border bg-white"></div>
-               <h4 className="mx-1 text-3xl font-bold">Contact</h4>
+               <h4 className="mx-1 text-3xl font-bold capitalize">{trlns("title")}</h4>
             </div>
             <div className="ml-4 mt-14 flex flex-col space-y-3 sm:ml-8 md:ml-0 md:w-1/2">
-               <h6 className="text-xl font-semibold tracking-tight">Lets get in touch.</h6>
-               <p className="text-sm md:text-base">
-                  Feel free to reach out to me. I am always open to new <span className="text-pink">opportunies</span>.
-               </p>
+               <h6 className="text-xl font-semibold tracking-tight">{trlns("solicitation")}.</h6>
+               <p
+                  className="text-sm md:text-base"
+                  dangerouslySetInnerHTML={{
+                     __html: trlns.markup("text", {
+                        pink: (chunk: string) => `<span class="text-pink">${chunk}</span>`,
+                     }),
+                  }}
+               />
                <div className="flex flex-col items-baseline">
-                  <a target="_blank" href="mailto:lirkmal171@gmai.com" className="my-2 flex items-center space-x-2 rounded-lg bg-gmail px-3 py-2 text-center text-xs text-white hover:bg-opacity-90">
+                  <a target="_blank" href="mailto:akmalrma1710@gmail.com" className="my-2 flex items-center space-x-2 rounded-lg bg-gmail px-3 py-2 text-center text-xs text-white hover:bg-opacity-90">
                      <svg className="h-4 w-4" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>Gmail</title>
                         <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />

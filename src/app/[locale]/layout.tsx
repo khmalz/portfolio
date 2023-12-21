@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
+import { NextIntlClientProvider, useMessages } from "next-intl";
+import { locales } from "@/navigation";
+import { notFound } from "next/navigation";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -49,8 +52,16 @@ export const metadata: Metadata = {
       "SMK",
       "Pelajar",
    ],
+   metadataBase: new URL("https://khmalz-portfolio.vercel.app"),
+   alternates: {
+      canonical: "/",
+      languages: {
+         en: "/en",
+         id: "/id",
+      },
+   },
    openGraph: {
-      images: "/assets/images/projects/portfolio.webp",
+      images: "/images/projects/portfolio.webp",
       title: "Portfolio - Khairul Akmal",
       url: "https://github.com/khmalz",
       description: "Check out my portfolio website to see my skills in web developer.",
@@ -59,10 +70,18 @@ export const metadata: Metadata = {
    },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
+   if (!locales.includes(locale)) {
+      notFound();
+   }
+
+   const messages = useMessages();
+
    return (
-      <html lang="en">
-         <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
+      <html lang={locale}>
+         <NextIntlClientProvider locale={locale} messages={messages}>
+            <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
+         </NextIntlClientProvider>
       </html>
    );
 }

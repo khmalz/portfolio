@@ -1,9 +1,12 @@
 import projectsCollection from "@/docs/projects";
+import snakeToNormalCase from "@/helpers/snakeToNormalCase";
 import { projectType } from "@/types/projectType";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 
 export default function ProjectSection() {
+   const trlns = useTranslations("project");
    const [projects] = useState<projectType[]>(projectsCollection);
 
    return (
@@ -11,7 +14,7 @@ export default function ProjectSection() {
          <div className="flex flex-col">
             <div className="flex items-center self-baseline">
                <div className="h-px w-10 flex-1 border bg-white"></div>
-               <h4 className="mx-1 text-3xl font-bold">Project</h4>
+               <h4 className="mx-1 text-3xl font-bold">{trlns("title")}</h4>
             </div>
             <div className="mx-auto mt-14 grid grid-cols-1 gap-8 md:mx-0 md:grid-cols-2 xl:grid-cols-3">
                {projects.map((project: projectType, index: number) => (
@@ -30,15 +33,15 @@ export default function ProjectSection() {
                         )}
 
                         <div className="p-5">
-                           <h5 className="text-xl font-bold tracking-tight">{project.title}</h5>
+                           <h5 className="text-xl font-bold capitalize tracking-tight">{snakeToNormalCase(project.title)}</h5>
                            <div className="my-3">
                               {project.tech.map((tag: string, index: number) => (
-                                 <span key={index} className="mr-2 inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:bg-gray-200/90">
+                                 <span key={index} className="mr-2 inline-flex cursor-pointer items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 hover:bg-gray-200/90">
                                     {tag}
                                  </span>
                               ))}
                            </div>
-                           <p className="text-sm font-normal text-slate-100 md:text-base">{project.description}</p>
+                           <p className="text-sm font-normal text-slate-100 md:text-base">{trlns(`${project.title}.description`)}</p>
                         </div>
                      </div>
                      <div className="flex space-x-3 px-5 pb-4 pt-2">
