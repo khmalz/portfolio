@@ -1,3 +1,5 @@
+"use client";
+
 import { useFormatter } from "next-intl";
 import convertStringToDate from "./converStringToDate";
 
