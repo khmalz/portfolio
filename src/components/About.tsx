@@ -1,9 +1,10 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import SvgTech from "./SvgTech";
 import { svgTechType } from "@/types/svgTechType";
 import techsCollection from "@/docs/techs";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
 
 export default function AboutSection() {
    const trlns = useTranslations("about");
