@@ -15,7 +15,7 @@ export default function HomeSection() {
                <div className="h-px w-7 flex-1 bg-white md:w-10"></div>
             </div>
             <div className="py-10">
-               <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+               <h1 className="text-center text-4xl font-bold text-white md:text-5xl lg:text-6xl">
                   {trlns("me")} <span className="text-pink">Khairul</span> Akmal
                </h1>
             </div>

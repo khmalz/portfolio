@@ -5,16 +5,12 @@ import SvgTech from "./SvgTech";
 import { svgTechType } from "@/types/svgTechType";
 import techsCollection from "@/docs/techs";
 import { useTranslations } from "next-intl";
+import useLangAttribute from "@/hooks/useLangAttribute";
 
 export default function AboutSection() {
    const trlns = useTranslations("about");
    const [techs] = useState<svgTechType[]>(techsCollection);
-   const [lang, setLang] = useState<string>("");
-
-   useEffect(() => {
-      const langValue = document.documentElement.lang;
-      setLang(() => langValue);
-   }, []);
+   const lang = useLangAttribute();
 
    return (
       <section id="about" className="container pt-16">
