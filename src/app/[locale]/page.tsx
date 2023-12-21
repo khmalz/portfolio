@@ -1,13 +1,15 @@
 "use client";
 
-import AboutSection from "@/components/About";
-import CertificateSection from "@/components/Certificate";
-import ExperienceSection from "@/components/Experience";
-import HomeSection from "@/components/Home";
-import Navbar from "@/components/Navbar";
-import ProjectSection from "../../components/Project";
-import ContactSection from "@/components/Contact";
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
+
+const AboutSection = dynamic(() => import("@/components/About"), { ssr: false });
+const CertificateSection = dynamic(() => import("@/components/Certificate"), { ssr: false });
+const ExperienceSection = dynamic(() => import("@/components/Experience"), { ssr: false });
+const HomeSection = dynamic(() => import("@/components/Home"), { ssr: false });
+const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
+const ProjectSection = dynamic(() => import("@/components/Project"), { ssr: false });
+const ContactSection = dynamic(() => import("@/components/Contact"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
 export default function Home() {
    return (
