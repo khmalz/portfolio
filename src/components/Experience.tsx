@@ -39,9 +39,7 @@ export default function ExperienceSection() {
                            </svg>
                         </span>
                         <h3 className="mb-1 text-lg font-semibold text-white">{experience.companyName}</h3>
-                        <time className="mb-2 block text-xs font-normal leading-none text-slate-300 md:text-sm">
-                           {TranslatedStringDate(experience.startDate)} - {TranslatedStringDate(experience.endDate)}
-                        </time>
+                        <time className="mb-2 block text-xs font-normal leading-none text-slate-300 md:text-sm">{`${experience.startDate} - ${experience.endDate}`}</time>
                         <p className="text-base font-normal text-slate-200">{experience.position}</p>
                      </li>
                   ))}
