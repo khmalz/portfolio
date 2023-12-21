@@ -1,3 +1,5 @@
+"use client";
+
 import experiencesCollection from "@/docs/experiences";
 import TranslatedStringDate from "@/helpers/TranslatedStringDate";
 import { experienceType } from "@/types/experienceType";
