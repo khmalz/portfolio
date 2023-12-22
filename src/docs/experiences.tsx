@@ -2,7 +2,7 @@ import { experienceType } from "@/types/experienceType";
 
 const experiencesCollection: experienceType[] = [
    {
-      companyName: "PT. Indi Teknokreasi Internasional",
+      companyName: "INDI Technology",
       position: "Web Developer",
       startDate: "February 2023",
       endDate: "May 2023",
