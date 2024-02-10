@@ -45,6 +45,14 @@ const projectsCollection: projectType[] = [
       description: "A website that efficiently manages employee benefits and perks, improving well-being and satisfaction in the work environment.",
       github: "https://github.com/khmalz/kompensasi-dan-benefit-karyawan",
    },
+   {
+      image: "/images/projects/digiworks.webp",
+      title: "digiworks",
+      tech: ["Laravel", "Tailwind CSS", "MySQL"],
+      description:
+         "A platform that collects student work from software engineering majors in schools. The goal is to provide a space for students to showcase their creativity and abilities in application development, as well as inspire their peers.",
+      github: "https://github.com/khmalz/showcase-project",
+   },
 ];
 
 export default projectsCollection;
