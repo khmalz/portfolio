@@ -48,10 +48,18 @@ const projectsCollection: projectType[] = [
    {
       image: "/images/projects/digiworks.webp",
       title: "digiworks",
-      tech: ["Laravel", "Tailwind CSS", "MySQL"],
+      tech: ["Laravel", "Tailwind CSS", "Flowbite", "MySQL"],
       description:
          "A platform that collects student work from software engineering majors in schools. The goal is to provide a space for students to showcase their creativity and abilities in application development, as well as inspire their peers.",
       github: "https://github.com/khmalz/showcase-project",
+   },
+   {
+      image: "/images/projects/e-certificate.webp",
+      title: "e_certificate",
+      tech: ["Laravel", "Tailwind CSS", "Flowbite", "MySQL"],
+      description:
+         "A project derived from the results of the Competency Certification Test. This project aims to provide a solution to companies that need a website for the automatic generation of certificates based on the completion of organized training. With e-certificate, companies can save time and resources in the process of making certificates.",
+      github: "https://github.com/khmalz/lsp-certificate",
    },
 ];
 

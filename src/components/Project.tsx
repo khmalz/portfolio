@@ -1,5 +1,6 @@
 import projectsCollection from "@/docs/projects";
 import snakeToNormalCase from "@/helpers/snakeToNormalCase";
+import useLoadMore from "@/hooks/useLoadMore";
 import { projectType } from "@/types/projectType";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import { useState } from "react";
 export default function ProjectSection() {
    const trlns = useTranslations("project");
    const [projects] = useState<projectType[]>(projectsCollection);
+   const { displayProjects, handleLoadMore } = useLoadMore();
 
    return (
       <section id="project" className="container mt-5 py-10 pt-16 md:mt-10">
@@ -17,7 +19,7 @@ export default function ProjectSection() {
                <h4 className="mx-1 text-3xl font-bold">{trlns("title")}</h4>
             </div>
             <div className="mx-auto mt-14 grid grid-cols-1 gap-8 md:mx-0 md:grid-cols-2 xl:grid-cols-3">
-               {projects.map((project: projectType, index: number) => (
+               {projects.slice(0, displayProjects).map((project: projectType, index: number) => (
                   <div key={index} className="group flex max-w-md flex-col justify-between overflow-hidden rounded-lg bg-secondary shadow backdrop-blur-md transition-transform duration-300 hover:scale-102">
                      <div>
                         {project.image === "placeholder" ? (
@@ -73,6 +75,13 @@ export default function ProjectSection() {
                   </div>
                ))}
             </div>
+            {displayProjects < projects.length && (
+               <div className="mt-5 flex items-center justify-center">
+                  <button onClick={handleLoadMore} className="inline-flex items-center rounded-lg bg-fourth px-3 py-2 text-center text-xs font-medium text-white focus:outline-none focus:ring-0 md:text-sm">
+                     Load More
+                  </button>
+               </div>
+            )}
          </div>
       </section>
    );
