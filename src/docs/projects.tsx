@@ -61,6 +61,22 @@ const projectsCollection: projectType[] = [
          "A project derived from the results of the Competency Certification Test. This project aims to provide a solution to companies that need a website for the automatic generation of certificates based on the completion of organized training. With e-certificate, companies can save time and resources in the process of making certificates.",
       github: "https://github.com/khmalz/lsp-certificate",
    },
+   {
+      image: "/images/projects/checker-account.webp",
+      title: "checker_account",
+      tech: ["Flutter"],
+      description:
+         "A mobile application designed to check Mobile Legends accounts based on the ID and server inputted by the user. This application allows users to get the username of the Mobile Legends account they want, providing convenience in verifying their account information.",
+      github: "https://github.com/khmalz/checker_ml_account",
+   },
+   {
+      image: "/images/projects/ongkir.webp",
+      title: "ongkos_kirim",
+      tech: ["Flutter"],
+      description:
+         "A mobile application designed to check shipping prices and estimated delivery times based on origin and destination locations. The app allows users to easily get information on shipping costs and estimated delivery days, helping them to plan their shipments more efficiently.",
+      github: "https://github.com/khmalz/ongkir",
+   },
 ];
 
 export default projectsCollection;
