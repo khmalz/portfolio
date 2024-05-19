@@ -5,14 +5,14 @@ import Image from "next/image";
 export default function HomeSection() {
    const trlns = useTranslations("home");
 
-   const typeTexRef = useTyped(["FullStack Developer", "Backend Developer", trlns("student")]);
+   const typeTexRef = useTyped(["FullStack Developer", "Backend Developer", "Mobile Developer", "Android Developer", trlns("student")]);
 
    return (
       <section id="home" className="container mt-20 grid min-h-screen grid-cols-1 md:mt-0 md:grid-cols-2 md:items-center">
          <div className="flex flex-col items-center space-y-4 self-end md:items-start md:space-y-2 md:self-center">
             <div className="flex flex-wrap items-center justify-center">
                <div className="h-px w-7 flex-1 bg-white md:w-10"></div>
-               <h4 className="mx-1 text-sm font-bold text-white md:text-base">{trlns("welcome")}</h4>
+               <h4 className="mx-1 text-sm font-bold text-white md:text-lg xl:text-xl">{trlns("welcome")}</h4>
                <div className="h-px w-7 flex-1 bg-white md:w-10"></div>
             </div>
             <div className="py-10">
@@ -27,7 +27,7 @@ export default function HomeSection() {
             </div>
          </div>
          <div className="order-1 mb-8 mt-7 self-start text-center md:order-2 md:mb-0 md:mt-0 md:self-center">
-            <Image width={600} height={600} loading="lazy" src="/images/profil-pict.png" alt="profil picture" className="w-120 md:w-132 inline-block" />
+            <Image width={600} height={600} loading="lazy" src="/images/profil-pict.png" alt="profil picture" className="inline-block w-120 md:w-132" />
          </div>
       </section>
    );
