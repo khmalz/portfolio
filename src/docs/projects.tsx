@@ -64,7 +64,7 @@ const projectsCollection: projectType[] = [
    {
       image: "/images/projects/checker-account.webp",
       title: "checker_account",
-      tech: ["Flutter"],
+      tech: ["Flutter", "Getx"],
       description:
          "A mobile application designed to check Mobile Legends accounts based on the ID and server inputted by the user. This application allows users to get the username of the Mobile Legends account they want, providing convenience in verifying their account information.",
       github: "https://github.com/khmalz/checker_ml_account",
@@ -72,7 +72,7 @@ const projectsCollection: projectType[] = [
    {
       image: "/images/projects/ongkir.webp",
       title: "ongkos_kirim",
-      tech: ["Flutter"],
+      tech: ["Flutter", "Getx"],
       description:
          "A mobile application designed to check shipping prices and estimated delivery times based on origin and destination locations. The app allows users to easily get information on shipping costs and estimated delivery days, helping them to plan their shipments more efficiently.",
       github: "https://github.com/khmalz/ongkir",
