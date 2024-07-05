@@ -41,7 +41,7 @@ const projectsCollection: projectType[] = [
    {
       image: "/images/projects/kompensasi-benefit-karyawan.webp",
       title: "kompensasi_dan_benefit_karyawan",
-      tech: ["Laravel", "Bootstrap", "MySQL"],
+      tech: ["Laravel", "Tailwind CSS", "Flowbite", "SQLite"],
       description: "A website that efficiently manages employee benefits and perks, improving well-being and satisfaction in the work environment.",
       github: "https://github.com/khmalz/kompensasi-dan-benefit-karyawan",
    },
