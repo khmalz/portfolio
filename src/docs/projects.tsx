@@ -77,6 +77,14 @@ const projectsCollection: projectType[] = [
          "A mobile application designed to check shipping prices and estimated delivery times based on origin and destination locations. The app allows users to easily get information on shipping costs and estimated delivery days, helping them to plan their shipments more efficiently.",
       github: "https://github.com/khmalz/ongkir",
    },
+   {
+      image: "/images/projects/football-quiz.webp",
+      title: "football_quiz",
+      tech: ["Flutter", "Getx"],
+      description:
+         "A quiz mobile application about football that offers a wide variety of categories. The app is designed to test users' knowledge of football through questions covering various aspects of the football world.",
+      github: "https://github.com/khmalz/football-quiz",
+   },
 ];
 
 export default projectsCollection;
