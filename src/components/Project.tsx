@@ -78,7 +78,7 @@ export default function ProjectSection() {
             {displayProjects < projects.length && (
                <div className="mt-5 flex items-center justify-center">
                   <button onClick={handleLoadMore} className="inline-flex items-center rounded-lg bg-fourth px-3 py-2 text-center text-xs font-medium text-white focus:outline-none focus:ring-0 md:text-sm">
-                     Load More
+                     {trlns("more")}
                   </button>
                </div>
             )}
