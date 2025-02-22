@@ -1,6 +1,7 @@
 import useLangAttribute from "@/hooks/useLangAttribute";
 import { Link, routing } from "@/i18n/routing";
-import { Locale, navLinkType } from "@/types/navLinkType";
+import { Locale } from "@/types/intlType";
+import { navLinkType } from "@/types/navLinkType";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";

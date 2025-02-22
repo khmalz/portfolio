@@ -4,6 +4,9 @@ import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { Locale } from "@/types/intlType";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -71,7 +74,14 @@ export const metadata: Metadata = {
    },
 };
 
-export default async function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
+type Params = Promise<{ locale: Locale }>;
+export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Params }) {
+   const { locale } = await params;
+
+   if (!locale || !routing.locales.includes(locale as Locale)) {
+      notFound();
+   }
+
    const messages = await getMessages();
 
    return (
