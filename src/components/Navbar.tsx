@@ -1,9 +1,9 @@
 import useLangAttribute from "@/hooks/useLangAttribute";
-import { Link, locales } from "@/navigation";
-import { navLinkType } from "@/types/navLinkType";
+import { Link, routing } from "@/i18n/routing";
+import { Locale, navLinkType } from "@/types/navLinkType";
 import { Menu, Transition } from "@headlessui/react";
 import { useTranslations } from "next-intl";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 export default function Navbar() {
    const trlns = useTranslations("navbar");
@@ -78,7 +78,7 @@ export default function Navbar() {
                         leaveTo="transform opacity-0 scale-95">
                         <Menu.Items className="absolute right-0 mt-2 w-20 origin-top-right divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                            <div className="px-1 py-1">
-                              {locales.map(locale => (
+                              {routing.locales.map((locale: Locale) => (
                                  <Menu.Item key={locale}>
                                     {({ active }) => (
                                        <Link locale={locale} href="/" className={`${active ? "bg-fourth text-white" : "text-gray-900"} group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm uppercase`}>

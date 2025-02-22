@@ -3,8 +3,8 @@ import { Poppins } from "next/font/google";
 import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
 import { NextIntlClientProvider, useMessages } from "next-intl";
-import { locales } from "@/navigation";
 import { notFound } from "next/navigation";
+import { redirect, routing } from "@/i18n/routing";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -71,10 +71,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
-   if (!locales.includes(locale)) {
-      notFound();
-   }
-
    const messages = useMessages();
 
    return (
