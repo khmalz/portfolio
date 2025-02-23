@@ -27,7 +27,7 @@ export default function HomeSection() {
             </div>
          </div>
          <div className="order-1 mb-8 mt-7 self-start text-center md:order-2 md:mb-0 md:mt-0 md:self-center">
-            <Image width={600} height={600} loading="lazy" src="/images/profil-pict.png" alt="profil picture" className="inline-block w-120 md:w-132" />
+            <Image width={600} height={600} priority src="/images/profil-pict.png" alt="profil picture" className="w-120 md:w-132 inline-block" />
          </div>
       </section>
    );
