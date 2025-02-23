@@ -2,9 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
-import { NextIntlClientProvider, useMessages } from "next-intl";
-import { locales } from "@/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { Locale } from "@/types/intlType";
 import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import clsx from "clsx/lite";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -22,7 +25,7 @@ export function generateViewport(): Viewport {
 
 export const metadata: Metadata = {
    title: "My Portfolio",
-   description: "Portofolio web developer - Creative developer with experience in various web projects with 2-3 years of experience as a full-stack developer with more back-end dominance.",
+   description: "Portofolio web developer - Creative developer with experience in various web projects with experience since 2020 as a full-stack developer with more back-end dominance.",
    authors: [
       {
          name: "Khairul Akmal",
@@ -51,6 +54,8 @@ export const metadata: Metadata = {
       "Next Js",
       "SMK",
       "Pelajar",
+      "Mahasiswa",
+      "UNJ",
    ],
    metadataBase: new URL("https://khmalz-portfolio.vercel.app"),
    alternates: {
@@ -64,23 +69,26 @@ export const metadata: Metadata = {
       images: "/images/projects/portfolio.webp",
       title: "Portfolio - Khairul Akmal",
       url: "https://github.com/khmalz",
-      description: "Check out my portfolio website to see my skills in web developer.",
+      description: "Check out my portfolio website to see my skills as web developer.",
       type: "website",
       countryName: "Indonesia",
    },
 };
 
-export default function RootLayout({ children, params: { locale } }: { children: React.ReactNode; params: { locale: string } }) {
-   if (!locales.includes(locale)) {
+type Params = Promise<{ locale: Locale }>;
+export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Params }) {
+   const { locale } = await params;
+
+   if (!locale || !routing.locales.includes(locale as Locale)) {
       notFound();
    }
 
-   const messages = useMessages();
+   const messages = await getMessages();
 
    return (
       <html lang={locale}>
          <NextIntlClientProvider locale={locale} messages={messages}>
-            <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
+            <body className={clsx(poppins.className, "bg-primary text-white")}>{children}</body>
          </NextIntlClientProvider>
       </html>
    );

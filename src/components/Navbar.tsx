@@ -1,9 +1,11 @@
 import useLangAttribute from "@/hooks/useLangAttribute";
-import { Link, locales } from "@/navigation";
+import { Link, routing } from "@/i18n/routing";
+import { Locale } from "@/types/intlType";
 import { navLinkType } from "@/types/navLinkType";
-import { Menu, Transition } from "@headlessui/react";
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react";
+import clsx from "clsx/lite";
 import { useTranslations } from "next-intl";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 export default function Navbar() {
    const trlns = useTranslations("navbar");
@@ -19,17 +21,17 @@ export default function Navbar() {
    ];
 
    return (
-      <nav className="fixed start-0 top-0 z-20 w-full bg-white bg-opacity-5 shadow-sm backdrop-blur-sm">
+      <nav className="shadow-2xs backdrop-blur-xs fixed start-0 top-0 z-20 w-full bg-white/5">
          <div className="container mx-auto">
             <div className="flex items-center justify-between py-4">
                <div className="flex w-full justify-between space-x-3 md:order-2 md:w-auto md:justify-start md:space-x-0">
                   <Menu as="div" className="relative inline-block text-left md:hidden">
                      <div>
-                        <Menu.Button className="inline-flex w-full justify-center rounded-md bg-white/20 px-4 py-2 text-sm font-medium text-white  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+                        <MenuButton className="focus:outline-hidden inline-flex w-full justify-center rounded-md bg-white/20 px-4 py-2 text-sm font-medium  text-white focus-visible:ring-2 focus-visible:ring-white/75">
                            <svg className="h-5 w-5 fill-current text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 17 14">
                               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 1h15M1 7h15M1 13h15" />
                            </svg>
-                        </Menu.Button>
+                        </MenuButton>
                      </div>
                      <Transition
                         as={Fragment}
@@ -39,25 +41,25 @@ export default function Navbar() {
                         leave="transition ease-in duration-75"
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95">
-                        <Menu.Items className="absolute left-0 mt-2 w-40 origin-top-left divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none sm:w-72">
+                        <MenuItems className="focus:outline-hidden absolute left-0 mt-2 w-40 origin-top-left divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 sm:w-72">
                            <div className="px-1 py-1">
                               {navLink.map((item, index) => (
-                                 <Menu.Item key={index}>
-                                    {({ active }) => (
-                                       <a href={item.link} className={`${active ? "bg-fourth text-white" : "text-gray-900"} group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm capitalize`}>
+                                 <MenuItem key={index}>
+                                    {({ focus }) => (
+                                       <a href={item.link} className={clsx("group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm capitalize", focus ? "bg-fourth text-white" : "text-gray-900")}>
                                           {item.text}
                                        </a>
                                     )}
-                                 </Menu.Item>
+                                 </MenuItem>
                               ))}
                            </div>
-                        </Menu.Items>
+                        </MenuItems>
                      </Transition>
                   </Menu>
 
                   <Menu as="div" className="relative inline-block text-left">
                      <div>
-                        <Menu.Button className="flex items-center rounded-md bg-white/20 px-3 py-2 text-sm font-medium uppercase text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+                        <MenuButton className="focus:outline-hidden flex items-center rounded-md bg-white/20 px-3 py-2 text-sm font-medium uppercase text-white focus-visible:ring-2 focus-visible:ring-white/75">
                            {lang}
                            <svg viewBox="0 0 24 24" className="h-5 w-5 pb-0.5 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -66,7 +68,7 @@ export default function Navbar() {
                                  <path d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z" />
                               </g>
                            </svg>
-                        </Menu.Button>
+                        </MenuButton>
                      </div>
                      <Transition
                         as={Fragment}
@@ -76,19 +78,19 @@ export default function Navbar() {
                         leave="transition ease-in duration-75"
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95">
-                        <Menu.Items className="absolute right-0 mt-2 w-20 origin-top-right divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+                        <MenuItems className="focus:outline-hidden absolute right-0 mt-2 w-20 origin-top-right divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5">
                            <div className="px-1 py-1">
-                              {locales.map(locale => (
-                                 <Menu.Item key={locale}>
-                                    {({ active }) => (
-                                       <Link locale={locale} href="/" className={`${active ? "bg-fourth text-white" : "text-gray-900"} group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm uppercase`}>
+                              {routing.locales.map((locale: Locale) => (
+                                 <MenuItem key={locale}>
+                                    {({ focus }) => (
+                                       <Link locale={locale} href="/" className={clsx("group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm uppercase", focus ? "bg-fourth text-white" : "text-gray-900")}>
                                           {locale}
                                        </Link>
                                     )}
-                                 </Menu.Item>
+                                 </MenuItem>
                               ))}
                            </div>
-                        </Menu.Items>
+                        </MenuItems>
                      </Transition>
                   </Menu>
                </div>

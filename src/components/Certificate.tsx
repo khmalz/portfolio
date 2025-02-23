@@ -1,6 +1,7 @@
 import certificatesCollection from "@/docs/certificates";
 import { certificateType } from "@/types/certificateType";
-import { Tab } from "@headlessui/react";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import clsx from "clsx/lite";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -21,30 +22,31 @@ export default function CertificateSection() {
                <h4 className="mx-1 text-3xl font-bold">{trlns("title")}</h4>
             </div>
             <div className="mt-10 flex flex-col">
-               <Tab.Group vertical>
+               <TabGroup vertical>
                   <div className="md:flex">
-                     <Tab.List className="flex flex-col space-y-2 rounded-xl p-5 md:w-2/5 md:justify-center">
+                     <TabList className="flex flex-col space-y-2 rounded-xl p-5 md:w-2/5 md:justify-center">
                         {certificates.map((certificate: certificateType, index) => (
                            <Tab
                               key={index}
                               className={({ selected }) =>
-                                 `w-full rounded-lg py-5 text-sm font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2 ${
-                                    selected ? "bg-white text-blue-700 shadow" : "bg-fourth text-white hover:bg-white/[0.12] hover:text-white"
-                                 }`
+                                 clsx(
+                                    "focus:outline-hidden w-full rounded-lg py-5 text-sm font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:ring",
+                                    selected ? "bg-white text-blue-700 shadow-sm" : "bg-fourth hover:bg-white/12 text-white hover:text-white",
+                                 )
                               }>
                               {certificate.title}
                            </Tab>
                         ))}
-                     </Tab.List>
-                     <Tab.Panels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
+                     </TabList>
+                     <TabPanels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
                         {certificates.map((certificate: certificateType, index) => (
-                           <Tab.Panel key={index} className="rounded-lg bg-white p-4 md:w-145">
+                           <TabPanel key={index} className="md:w-145 rounded-lg bg-white p-4">
                               <Image
                                  onLoad={() => setIsImageLoaded(true)}
                                  loading="lazy"
                                  width={500}
                                  height={400}
-                                 className={`w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500 ${isImageLoaded ? "filter-none" : "blur-sm filter"}`}
+                                 className={clsx("w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500", isImageLoaded ? "filter-none" : "blur-xs filter")}
                                  src={certificate.image}
                                  alt={certificate.title}
                                  onClick={() => setOpen(true)}
@@ -59,11 +61,11 @@ export default function CertificateSection() {
                                  close={() => setOpen(false)}
                                  slides={[{ src: certificate.image, alt: certificate.title }]}
                               />
-                           </Tab.Panel>
+                           </TabPanel>
                         ))}
-                     </Tab.Panels>
+                     </TabPanels>
                   </div>
-               </Tab.Group>
+               </TabGroup>
             </div>
          </div>
       </section>
