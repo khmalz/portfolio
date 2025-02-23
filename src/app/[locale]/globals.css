@@ -1,25 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-   scroll-behavior: smooth;
+@theme {
+   --color-primary: #205295;
+   --color-secondary: #144272;
+   --color-third: #0a2647;
+   --color-fourth: #2c74b3;
+   --color-pink: #fb8e80;
+   --color-gmail: #ea4335;
+   --color-github: #181717;
+   --color-instagram: #e4405f;
+   --color-linkedin: #0a66c2;
 }
 
-@layer components {
-   .hover-underline {
-      @apply relative inline-block text-white;
+@layer base {
+   * {
+      scroll-behavior: smooth;
    }
 
-   .hover-underline::after {
-      @apply absolute -bottom-1 left-0 h-1 w-full origin-bottom-right scale-x-0 bg-white transition-transform duration-300 ease-out content-[''] hover:origin-bottom-left hover:scale-x-100;
+   *,
+   ::after,
+   ::before,
+   ::backdrop,
+   ::file-selector-button {
+      border-color: var(--color-gray-200, currentColor);
    }
 
-   .hover-underline.active::after {
-      @apply scale-x-100;
+   button:not(:disabled),
+   [role="button"]:not(:disabled) {
+      cursor: pointer;
+   }
+}
+
+@utility container {
+   margin-inline: auto;
+   padding-inline: 1rem;
+
+   @variant sm {
+      padding-inline: 2rem;
    }
 
-   .card-about {
-      @apply flex cursor-pointer flex-col items-center justify-center rounded bg-gray-400/30 px-5 py-5 backdrop-blur-lg transition-colors hover:bg-gray-600/70;
+   @variant lg {
+      padding-inline: 4rem;
    }
+
+   @variant xl {
+      padding-inline: 5rem;
+   }
+
+   @variant 2xl {
+      padding-inline: 6rem;
+   }
+}
+
+@utility hover-underline {
+   @apply relative inline-block text-white;
+
+   &::after {
+      @apply absolute -bottom-1 left-0 h-1 w-full origin-bottom-right scale-x-0 bg-white transition-transform duration-300 ease-out content-[''];
+   }
+
+   &:hover::after {
+      @apply origin-bottom-left scale-x-100;
+   }
+
+   &.active {
+      @apply after:scale-x-100;
+   }
+}
+
+@utility card-about {
+   @apply flex cursor-pointer flex-col items-center justify-center rounded bg-gray-400/30 px-5 py-5 backdrop-blur-lg transition-colors hover:bg-gray-600/70;
 }

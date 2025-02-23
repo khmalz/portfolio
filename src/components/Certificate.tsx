@@ -28,8 +28,8 @@ export default function CertificateSection() {
                            <Tab
                               key={index}
                               className={({ selected }) =>
-                                 `w-full rounded-lg py-5 text-sm font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2 ${
-                                    selected ? "bg-white text-blue-700 shadow" : "bg-fourth text-white hover:bg-white/[0.12] hover:text-white"
+                                 `focus:outline-hidden w-full rounded-lg py-5 text-sm font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:ring-2 ${
+                                    selected ? "bg-white text-blue-700 shadow-sm" : "bg-fourth text-white hover:bg-white/[0.12] hover:text-white"
                                  }`
                               }>
                               {certificate.title}
@@ -38,13 +38,13 @@ export default function CertificateSection() {
                      </Tab.List>
                      <Tab.Panels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
                         {certificates.map((certificate: certificateType, index) => (
-                           <Tab.Panel key={index} className="rounded-lg bg-white p-4 md:w-145">
+                           <Tab.Panel key={index} className="md:w-145 rounded-lg bg-white p-4">
                               <Image
                                  onLoad={() => setIsImageLoaded(true)}
                                  loading="lazy"
                                  width={500}
                                  height={400}
-                                 className={`w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500 ${isImageLoaded ? "filter-none" : "blur-sm filter"}`}
+                                 className={`w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500 ${isImageLoaded ? "filter-none" : "blur-xs filter"}`}
                                  src={certificate.image}
                                  alt={certificate.title}
                                  onClick={() => setOpen(true)}
