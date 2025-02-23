@@ -3,6 +3,7 @@
 import experiencesCollection from "@/docs/experiences";
 import TranslatedStringDate from "@/helpers/TranslatedStringDate";
 import { experienceType } from "@/types/experienceType";
+import clsx from "clsx/lite";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -20,10 +21,10 @@ export default function ExperienceSection() {
             <div className="mt-14 w-full">
                <ol className="relative ml-8 border-s border-gray-200">
                   {experiences.map((experience: experienceType, index: number) => (
-                     <li key={index} className={`ms-10 ${index === 0 && "mb-10"}`}>
+                     <li key={index} className={clsx("ms-10", index > 0 && "mt-10")}>
                         <span className="absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full bg-blue-100 ring-8 ring-white">
                            <svg
-                              className="h-2.5 w-2.5 text-secondary"
+                              className="text-secondary h-2.5 w-2.5"
                               xmlns="http://www.w3.org/2000/svg"
                               width={24}
                               height={24}

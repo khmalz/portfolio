@@ -1,6 +1,7 @@
 import certificatesCollection from "@/docs/certificates";
 import { certificateType } from "@/types/certificateType";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import clsx from "clsx/lite";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -28,9 +29,10 @@ export default function CertificateSection() {
                            <Tab
                               key={index}
                               className={({ selected }) =>
-                                 `focus:outline-hidden w-full rounded-lg py-5 text-sm font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:ring-2 ${
-                                    selected ? "bg-white text-blue-700 shadow-sm" : "bg-fourth text-white hover:bg-white/[0.12] hover:text-white"
-                                 }`
+                                 clsx(
+                                    "focus:outline-hidden w-full rounded-lg py-5 text-sm font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:ring",
+                                    selected ? "bg-white text-blue-700 shadow-sm" : "bg-fourth hover:bg-white/12 text-white hover:text-white",
+                                 )
                               }>
                               {certificate.title}
                            </Tab>
@@ -44,7 +46,7 @@ export default function CertificateSection() {
                                  loading="lazy"
                                  width={500}
                                  height={400}
-                                 className={`w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500 ${isImageLoaded ? "filter-none" : "blur-xs filter"}`}
+                                 className={clsx("w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500", isImageLoaded ? "filter-none" : "blur-xs filter")}
                                  src={certificate.image}
                                  alt={certificate.title}
                                  onClick={() => setOpen(true)}

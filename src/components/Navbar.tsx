@@ -3,6 +3,7 @@ import { Link, routing } from "@/i18n/routing";
 import { Locale } from "@/types/intlType";
 import { navLinkType } from "@/types/navLinkType";
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react";
+import clsx from "clsx/lite";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 
@@ -44,9 +45,11 @@ export default function Navbar() {
                            <div className="px-1 py-1">
                               {navLink.map((item, index) => (
                                  <MenuItem key={index}>
-                                    <a href={item.link} className="data-[focus]:bg-fourth group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm uppercase text-gray-900 data-[focus]:text-white">
-                                       {item.text}
-                                    </a>
+                                    {({ focus }) => (
+                                       <a href={item.link} className={clsx("group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm capitalize", focus ? "bg-fourth text-white" : "text-gray-900")}>
+                                          {item.text}
+                                       </a>
+                                    )}
                                  </MenuItem>
                               ))}
                            </div>
@@ -57,7 +60,7 @@ export default function Navbar() {
                   <Menu as="div" className="relative inline-block text-left">
                      <div>
                         <MenuButton className="focus:outline-hidden flex items-center rounded-md bg-white/20 px-3 py-2 text-sm font-medium uppercase text-white focus-visible:ring-2 focus-visible:ring-white/75">
-                           <span>{lang}</span>
+                           {lang}
                            <svg viewBox="0 0 24 24" className="h-5 w-5 pb-0.5 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <g id="SVGRepo_bgCarrier" strokeWidth={0} />
                               <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
@@ -79,9 +82,11 @@ export default function Navbar() {
                            <div className="px-1 py-1">
                               {routing.locales.map((locale: Locale) => (
                                  <MenuItem key={locale}>
-                                    <Link locale={locale} href="/" className="data-[focus]:bg-fourth group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm uppercase text-gray-900 data-[focus]:text-white">
-                                       {locale}
-                                    </Link>
+                                    {({ focus }) => (
+                                       <Link locale={locale} href="/" className={clsx("group mb-1 flex w-full items-center rounded-md px-2 py-2 text-sm uppercase", focus ? "bg-fourth text-white" : "text-gray-900")}>
+                                          {locale}
+                                       </Link>
+                                    )}
                                  </MenuItem>
                               ))}
                            </div>

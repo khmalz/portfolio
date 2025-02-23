@@ -7,6 +7,7 @@ import { getMessages } from "next-intl/server";
 import { Locale } from "@/types/intlType";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import clsx from "clsx/lite";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -87,7 +88,7 @@ export default async function RootLayout({ children, params }: { children: React
    return (
       <html lang={locale}>
          <NextIntlClientProvider locale={locale} messages={messages}>
-            <body className={`${poppins.className} bg-primary text-white`}>{children}</body>
+            <body className={clsx(poppins.className, "bg-primary text-white")}>{children}</body>
          </NextIntlClientProvider>
       </html>
    );
