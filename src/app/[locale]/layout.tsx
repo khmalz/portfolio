@@ -2,12 +2,13 @@ import "./globals.css";
 
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { Locale } from "@/types/intlType";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
 import clsx from "clsx/lite";
+import { notFound } from "next/navigation";
+
+import { Locale } from "@/types/intlType";
+import { routing } from "@/i18n/routing";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -75,15 +76,19 @@ export const metadata: Metadata = {
    },
 };
 
-type Params = Promise<{ locale: string }>;
-export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Params }) {
+type Props = {
+   children: React.ReactNode;
+   params: Promise<{ locale: string }>;
+};
+
+export default async function RootLayout({ children, params }: Props) {
    const { locale } = await params;
 
-   if (!locale || !routing.locales.includes(locale as any)) {
+   if (!locale || !hasLocale(routing.locales, locale)) {
       notFound();
    }
-   const validLocale = locale as Locale;
 
+   const validLocale = locale as Locale;
    const messages = await getMessages();
 
    return (
