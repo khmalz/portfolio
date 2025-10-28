@@ -1,16 +1,16 @@
-import certificatesCollection from "@/docs/certificates";
-import { certificateType } from "@/types/certificateType";
+"use client";
+
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import clsx from "clsx/lite";
-import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
+
+import type { certificateType } from "@/types/certificateType";
+
 const Lightbox = dynamic(() => import("yet-another-react-lightbox"), { ssr: false });
 
-export default function CertificateSection() {
-   const trlns = useTranslations("certificate");
-   const [certificates] = useState<certificateType[]>(certificatesCollection);
+export default function CertificateSection({ title, certificates }: { title: string; certificates: certificateType[] }) {
    const [isImageLoaded, setIsImageLoaded] = useState(false);
    const [open, setOpen] = useState(false);
 
@@ -19,7 +19,7 @@ export default function CertificateSection() {
          <div className="flex flex-col">
             <div className="flex items-center self-start">
                <div className="h-px w-10 flex-1 border bg-white"></div>
-               <h4 className="mx-1 text-3xl font-bold">{trlns("title")}</h4>
+               <h4 className="mx-1 text-3xl font-bold">{title}</h4>
             </div>
             <div className="mt-10 flex flex-col">
                <TabGroup vertical>
@@ -30,8 +30,8 @@ export default function CertificateSection() {
                               key={index}
                               className={({ selected }) =>
                                  clsx(
-                                    "focus:outline-hidden w-full rounded-lg py-5 text-sm font-medium leading-5 ring-white/60 ring-offset-2 ring-offset-blue-400 focus:ring",
-                                    selected ? "bg-white text-blue-700 shadow-sm" : "bg-fourth hover:bg-white/12 text-white hover:text-white",
+                                    "w-full rounded-lg py-5 text-sm leading-5 font-medium ring-white/60 ring-offset-2 ring-offset-blue-400 focus:ring focus:outline-hidden",
+                                    selected ? "bg-white text-blue-700 shadow-sm" : "bg-fourth text-white hover:bg-white/12 hover:text-white",
                                  )
                               }>
                               {certificate.title}
@@ -40,7 +40,7 @@ export default function CertificateSection() {
                      </TabList>
                      <TabPanels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
                         {certificates.map((certificate: certificateType, index) => (
-                           <TabPanel key={index} className="md:w-145 rounded-lg bg-white p-4">
+                           <TabPanel key={index} className="rounded-lg bg-white p-4 md:w-145">
                               <Image
                                  onLoad={() => setIsImageLoaded(true)}
                                  loading="lazy"

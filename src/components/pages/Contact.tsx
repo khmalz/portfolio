@@ -10,7 +10,7 @@ export default function ContactSection() {
                <div className="h-px w-10 flex-1 border bg-white"></div>
                <h4 className="mx-1 text-3xl font-bold capitalize">{trlns("title")}</h4>
             </div>
-            <div className="ml-4 mt-14 flex flex-col space-y-3 sm:ml-8 md:ml-0 md:w-1/2">
+            <div className="mt-14 ml-4 flex flex-col space-y-3 sm:ml-8 md:ml-0 md:w-1/2">
                <h6 className="text-xl font-semibold tracking-tight">{trlns("solicitation")}.</h6>
                <p
                   className="text-sm md:text-base"

@@ -9,7 +9,7 @@ const defaultOptions: TypedOptions = {
    backDelay: 1000,
    loop: true,
    shuffle: true,
-   cursorChar: " .",
+   cursorChar: ".",
 };
 
 export default function useTyped(words: string[]) {
