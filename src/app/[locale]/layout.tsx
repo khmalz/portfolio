@@ -1,7 +1,7 @@
+import "./globals.css";
+
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
-import "yet-another-react-lightbox/styles.css";
-import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Locale } from "@/types/intlType";
