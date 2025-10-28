@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "pull-intl": "i18nexus pull",
-    "dev": "next dev --turbopack",
-    "dev:pull": "npm run pull-intl && next dev --turbopack",
-    "build": "npm run pull-intl && next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
+    "dev:pull": "npm run pull-intl && next dev",
+    "build:pull": "npm run pull-intl && next build",
     "start": "next start",
     "lint": "eslint ."
   },
