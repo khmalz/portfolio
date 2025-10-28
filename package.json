@@ -26,6 +26,8 @@
       "yet-another-react-lightbox": "^3.25.0"
    },
    "devDependencies": {
+      "@eslint/eslintrc": "^3.3.1",
+      "@eslint/js": "^9.38.0",
       "@types/node": "^20.17.19",
       "@types/react": "^18.3.18",
       "@types/react-dom": "^18.3.5",
