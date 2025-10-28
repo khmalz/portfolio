@@ -1,15 +1,13 @@
-"use client";
-
 import experiencesCollection from "@/docs/experiences";
 import TranslatedStringDate from "@/helpers/TranslatedStringDate";
 import { experienceType } from "@/types/experienceType";
 import clsx from "clsx/lite";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useFormatter, useTranslations } from "next-intl";
 
 export default function ExperienceSection() {
    const trlns = useTranslations("experience");
-   const [experiences] = useState<experienceType[]>(experiencesCollection);
+   const format = useFormatter();
+   const experiences = experiencesCollection;
 
    return (
       <section id="experience" className="container mt-5 py-10 pt-16 md:mt-10">
@@ -40,8 +38,8 @@ export default function ExperienceSection() {
                            </svg>
                         </span>
                         <h3 className="mb-1 text-lg font-semibold text-white">{experience.companyName}</h3>
-                        <time className="mb-2 block text-xs font-normal leading-none text-slate-300 md:text-sm">
-                           {TranslatedStringDate(experience.startDate)} - {TranslatedStringDate(experience.endDate)}
+                        <time className="mb-2 block text-xs leading-none font-normal text-slate-300 md:text-sm">
+                           {TranslatedStringDate(experience.startDate, format)} - {TranslatedStringDate(experience.endDate, format)}
                         </time>
                         <p className="text-base font-normal text-slate-200">{experience.position}</p>
                      </li>

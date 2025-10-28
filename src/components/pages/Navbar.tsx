@@ -1,16 +1,18 @@
-import useLangAttribute from "@/hooks/useLangAttribute";
-import { routing } from "@/i18n/routing";
-import { Link } from "@/i18n/navigation";
-import { Locale } from "@/types/intlType";
-import { navLinkType } from "@/types/navLinkType";
+"use client";
+
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react";
 import clsx from "clsx/lite";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Fragment } from "react";
+
+import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/types/intlType";
+import type { navLinkType } from "@/types/navLinkType";
 
 export default function Navbar() {
    const trlns = useTranslations("navbar");
-   const lang = useLangAttribute();
+   const lang = useLocale();
 
    const navLink: navLinkType[] = [
       { text: "Home", link: "#home" },

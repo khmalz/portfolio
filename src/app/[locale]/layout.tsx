@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import clsx from "clsx/lite";
 import { notFound } from "next/navigation";
 
@@ -76,6 +76,10 @@ export const metadata: Metadata = {
    },
 };
 
+export function generateStaticParams() {
+   return routing.locales.map(locale => ({ locale }));
+}
+
 type Props = {
    children: React.ReactNode;
    params: Promise<{ locale: string }>;
@@ -87,6 +91,7 @@ export default async function RootLayout({ children, params }: Props) {
    if (!locale || !hasLocale(routing.locales, locale)) {
       notFound();
    }
+   setRequestLocale(locale);
 
    const validLocale = locale as Locale;
    const messages = await getMessages();
