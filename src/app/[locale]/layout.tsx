@@ -75,19 +75,20 @@ export const metadata: Metadata = {
    },
 };
 
-type Params = Promise<{ locale: Locale }>;
+type Params = Promise<{ locale: string }>;
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Params }) {
    const { locale } = await params;
 
-   if (!locale || !routing.locales.includes(locale as Locale)) {
+   if (!locale || !routing.locales.includes(locale as any)) {
       notFound();
    }
+   const validLocale = locale as Locale;
 
    const messages = await getMessages();
 
    return (
-      <html lang={locale}>
-         <NextIntlClientProvider locale={locale} messages={messages}>
+      <html lang={validLocale}>
+         <NextIntlClientProvider locale={validLocale} messages={messages}>
             <body className={clsx(poppins.className, "bg-primary text-white")}>{children}</body>
          </NextIntlClientProvider>
       </html>
