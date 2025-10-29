@@ -1,17 +1,19 @@
-import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
-import "yet-another-react-lightbox/styles.css";
 import "./globals.css";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { Locale } from "@/types/intlType";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+
 import clsx from "clsx/lite";
+import type { Metadata, Viewport } from "next";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { Poppins } from "next/font/google";
+import { notFound } from "next/navigation";
+
+import { routing } from "@/i18n/routing";
+import { Locale } from "@/types/intlType";
+import { cacheLife } from "next/cache";
 
 const poppins = Poppins({
    subsets: ["latin"],
-   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+   weight: ["500"],
 });
 
 export function generateViewport(): Viewport {
@@ -75,19 +77,32 @@ export const metadata: Metadata = {
    },
 };
 
-type Params = Promise<{ locale: Locale }>;
-export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Params }) {
+export function generateStaticParams() {
+   return routing.locales.map(locale => ({ locale }));
+}
+
+type Props = {
+   children: React.ReactNode;
+   params: Promise<{ locale: string }>;
+};
+
+export default async function RootLayout({ children, params }: Props) {
+   "use cache";
+   cacheLife("layout");
+
    const { locale } = await params;
 
-   if (!locale || !routing.locales.includes(locale as Locale)) {
+   if (!locale || !hasLocale(routing.locales, locale)) {
       notFound();
    }
+   setRequestLocale(locale);
 
+   const validLocale = locale as Locale;
    const messages = await getMessages();
 
    return (
-      <html lang={locale}>
-         <NextIntlClientProvider locale={locale} messages={messages}>
+      <html lang={validLocale}>
+         <NextIntlClientProvider locale={validLocale} messages={messages}>
             <body className={clsx(poppins.className, "bg-primary text-white")}>{children}</body>
          </NextIntlClientProvider>
       </html>

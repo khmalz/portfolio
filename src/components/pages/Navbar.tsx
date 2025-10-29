@@ -1,15 +1,18 @@
-import useLangAttribute from "@/hooks/useLangAttribute";
-import { Link, routing } from "@/i18n/routing";
-import { Locale } from "@/types/intlType";
-import { navLinkType } from "@/types/navLinkType";
+"use client";
+
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from "@headlessui/react";
 import clsx from "clsx/lite";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Fragment } from "react";
+
+import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/types/intlType";
+import type { navLinkType } from "@/types/navLinkType";
 
 export default function Navbar() {
    const trlns = useTranslations("navbar");
-   const lang = useLangAttribute();
+   const lang = useLocale();
 
    const navLink: navLinkType[] = [
       { text: "Home", link: "#home" },
@@ -21,13 +24,13 @@ export default function Navbar() {
    ];
 
    return (
-      <nav className="shadow-2xs backdrop-blur-xs fixed start-0 top-0 z-20 w-full bg-white/5">
+      <nav className="fixed start-0 top-0 z-20 w-full bg-white/5 shadow-2xs backdrop-blur-xs">
          <div className="container mx-auto">
             <div className="flex items-center justify-between py-4">
                <div className="flex w-full justify-between space-x-3 md:order-2 md:w-auto md:justify-start md:space-x-0">
                   <Menu as="div" className="relative inline-block text-left md:hidden">
                      <div>
-                        <MenuButton className="focus:outline-hidden inline-flex w-full justify-center rounded-md bg-white/20 px-4 py-2 text-sm font-medium  text-white focus-visible:ring-2 focus-visible:ring-white/75">
+                        <MenuButton className="inline-flex w-full justify-center rounded-md bg-white/20 px-4 py-2 text-sm font-medium text-white focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75">
                            <svg className="h-5 w-5 fill-current text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 17 14">
                               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 1h15M1 7h15M1 13h15" />
                            </svg>
@@ -41,7 +44,7 @@ export default function Navbar() {
                         leave="transition ease-in duration-75"
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95">
-                        <MenuItems className="focus:outline-hidden absolute left-0 mt-2 w-40 origin-top-left divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 sm:w-72">
+                        <MenuItems className="absolute left-0 mt-2 w-40 origin-top-left divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden sm:w-72">
                            <div className="px-1 py-1">
                               {navLink.map((item, index) => (
                                  <MenuItem key={index}>
@@ -59,7 +62,7 @@ export default function Navbar() {
 
                   <Menu as="div" className="relative inline-block text-left">
                      <div>
-                        <MenuButton className="focus:outline-hidden flex items-center rounded-md bg-white/20 px-3 py-2 text-sm font-medium uppercase text-white focus-visible:ring-2 focus-visible:ring-white/75">
+                        <MenuButton className="flex items-center rounded-md bg-white/20 px-3 py-2 text-sm font-medium text-white uppercase focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75">
                            {lang}
                            <svg viewBox="0 0 24 24" className="h-5 w-5 pb-0.5 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -78,7 +81,7 @@ export default function Navbar() {
                         leave="transition ease-in duration-75"
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95">
-                        <MenuItems className="focus:outline-hidden absolute right-0 mt-2 w-20 origin-top-right divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5">
+                        <MenuItems className="absolute right-0 mt-2 w-20 origin-top-right divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-hidden">
                            <div className="px-1 py-1">
                               {routing.locales.map((locale: Locale) => (
                                  <MenuItem key={locale}>
@@ -95,7 +98,7 @@ export default function Navbar() {
                   </Menu>
                </div>
                <div className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto">
-                  <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium  md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
+                  <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
                      {navLink.map((item: navLinkType, index: number) => (
                         <li key={index}>
                            <a href={item.link} className="hover-underline capitalize">
