@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 
 import { Locale } from "@/types/intlType";
 import { routing } from "@/i18n/routing";
+import { cacheLife, cacheTag } from "next/cache";
 
 const poppins = Poppins({
    subsets: ["latin"],
@@ -86,6 +87,9 @@ type Props = {
 };
 
 export default async function RootLayout({ children, params }: Props) {
+   "use cache";
+   cacheLife("layout");
+
    const { locale } = await params;
 
    if (!locale || !hasLocale(routing.locales, locale)) {
