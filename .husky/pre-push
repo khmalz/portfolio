@@ -1,0 +1,15 @@
+#!/bin/sh
+
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running ESLint before push..."
+bun run lint --quiet --max-warnings=0
+
+if [ $? -ne 0 ]; then
+  echo "ESLint found errors. Push aborted."
+  exit 
+fi
+
+echo "ESLint passed. Proceeding with push..."
+exit 0 
+

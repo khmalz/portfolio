@@ -28,6 +28,7 @@
         "autoprefixer": "^10.4.20",
         "eslint": "^9.38.0",
         "eslint-config-next": "^16.0.1",
+        "husky": "^9.1.7",
         "i18nexus-cli": "^3.5.0",
         "postcss": "^8.5.6",
         "prettier-plugin-tailwindcss": "^0.7.1",
@@ -688,6 +689,8 @@
     "hermes-parser": ["hermes-parser@0.25.1", "", { "dependencies": { "hermes-estree": "0.25.1" } }, "sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA=="],
 
     "https-proxy-agent": ["https-proxy-agent@5.0.1", "", { "dependencies": { "agent-base": "6", "debug": "4" } }, "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA=="],
+
+    "husky": ["husky@9.1.7", "", { "bin": { "husky": "bin.js" } }, "sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA=="],
 
     "i18nexus-cli": ["i18nexus-cli@3.8.2", "", { "dependencies": { "@next/env": "^11.0.1", "colors": "^1.4.0", "commander": "^7.2.0", "https-proxy-agent": "^5.0.0", "node-fetch": "^2.6.7", "ws": "^8.18.3" }, "bin": { "i18nexus": "bin/index.js" } }, "sha512-RcBfwnelEE6Qw39647URqzXk2rPNXgWbLu6H8g6onAU+fEm+AaF+dq9yokYYo8Iouwu7SCG9P8j8QdKXIbZjyA=="],
 
