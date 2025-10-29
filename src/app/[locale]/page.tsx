@@ -1,7 +1,5 @@
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
-import { use } from "react";
 
 import certificatesCollection from "@/docs/certificates";
 
@@ -10,16 +8,21 @@ import ContactSection from "@/components/pages/Contact";
 import ExperienceSection from "@/components/pages/Experience";
 import Footer from "@/components/pages/Footer";
 import HomeSection from "@/components/pages/Home";
+import { cacheLife } from "next/cache";
 
 const CertificateSection = dynamic(() => import("@/components/pages/Certificate"));
 const Navbar = dynamic(() => import("@/components/pages/Navbar"));
 const ProjectSection = dynamic(() => import("@/components/pages/Project"));
 
-export default function Home({ params }: { params: Promise<{ locale: string }> }) {
-   const { locale } = use(params);
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+   "use cache";
+   cacheLife("home");
+
+   const awaitedParams = await params;
+   const { locale } = awaitedParams;
    setRequestLocale(locale);
 
-   const trlns = useTranslations("certificate");
+   const trlns = await getTranslations("certificate");
 
    return (
       <>
