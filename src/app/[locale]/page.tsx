@@ -1,7 +1,5 @@
-import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import dynamic from "next/dynamic";
-import { use } from "react";
 
 import certificatesCollection from "@/docs/certificates";
 
@@ -16,14 +14,15 @@ const CertificateSection = dynamic(() => import("@/components/pages/Certificate"
 const Navbar = dynamic(() => import("@/components/pages/Navbar"));
 const ProjectSection = dynamic(() => import("@/components/pages/Project"));
 
-export default function Home({ params }: { params: Promise<{ locale: string }> }) {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
    "use cache";
    cacheLife("home");
 
-   const { locale } = use(params);
+   const awaitedParams = await params;
+   const { locale } = awaitedParams;
    setRequestLocale(locale);
 
-   const trlns = useTranslations("certificate");
+   const trlns = await getTranslations("certificate");
 
    return (
       <>
