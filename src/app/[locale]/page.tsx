@@ -10,7 +10,7 @@ import ContactSection from "@/components/pages/Contact";
 import ExperienceSection from "@/components/pages/Experience";
 import Footer from "@/components/pages/Footer";
 import HomeSection from "@/components/pages/Home";
-import { cacheLife, cacheTag } from "next/cache";
+import { cacheLife } from "next/cache";
 
 const CertificateSection = dynamic(() => import("@/components/pages/Certificate"));
 const Navbar = dynamic(() => import("@/components/pages/Navbar"));

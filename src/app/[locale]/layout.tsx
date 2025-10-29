@@ -1,15 +1,15 @@
 import "./globals.css";
 
+import clsx from "clsx/lite";
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import clsx from "clsx/lite";
+import { Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 
-import { Locale } from "@/types/intlType";
 import { routing } from "@/i18n/routing";
-import { cacheLife, cacheTag } from "next/cache";
+import { Locale } from "@/types/intlType";
+import { cacheLife } from "next/cache";
 
 const poppins = Poppins({
    subsets: ["latin"],
