@@ -9,4 +9,5 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "ESLint passed. Proceeding with push..."
+echo
 exit 0
