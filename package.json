@@ -1,57 +1,57 @@
 {
-  "name": "my-portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "pull-intl": "i18nexus pull",
-    "dev": "next dev",
-    "build": "next build",
-    "dev:pull": "npm run pull-intl && next dev",
-    "build:pull": "npm run pull-intl && next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "@headlessui/react": "^2.2.9",
-    "@tailwindcss/postcss": "^4.1.16",
-    "@tailwindcss/vite": "^4.1.16",
-    "caniuse-lite": "^1.0.30001700",
-    "clsx": "^2.1.1",
-    "install": "^0.13.0",
-    "next": "16.0.1",
-    "next-intl": "^4.4.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "typed.js": "^2.1.0",
-    "use-intl": "^4.4.0",
-    "yet-another-react-lightbox": "^3.25.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.38.0",
-    "@types/node": "^24.9.2",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
-    "@typescript-eslint/eslint-plugin": "^8.46.2",
-    "@typescript-eslint/parser": "^8.46.2",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.38.0",
-    "eslint-config-next": "^16.0.1",
-    "globals": "^16.4.0",
-    "husky": "^9.1.7",
-    "i18nexus-cli": "^3.5.0",
-    "postcss": "^8.5.6",
-    "prettier-plugin-tailwindcss": "^0.7.1",
-    "sharp": "^0.34.4",
-    "tailwindcss": "^4.1.16",
-    "typescript": "^5.9.3"
-  },
-  "overrides": {
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2"
-  },
-  "engines": {
-    "node": ">=20.9.0"
-  },
-  "packageManager": "pnpm@9.6.0"
+   "name": "my-portfolio",
+   "version": "0.1.0",
+   "private": true,
+   "scripts": {
+      "pull-intl": "i18nexus pull",
+      "dev": "next dev",
+      "build": "next build",
+      "dev:pull": "npm run pull-intl && next dev",
+      "build:pull": "npm run pull-intl && next build",
+      "start": "next start",
+      "lint": "eslint .",
+      "prepare": "husky"
+   },
+   "dependencies": {
+      "@headlessui/react": "^2.2.9",
+      "@tailwindcss/postcss": "^4.1.16",
+      "@tailwindcss/vite": "^4.1.16",
+      "caniuse-lite": "^1.0.30001700",
+      "clsx": "^2.1.1",
+      "install": "^0.13.0",
+      "next": "16.0.7",
+      "next-intl": "^4.4.0",
+      "react": "19.2.0",
+      "react-dom": "19.2.0",
+      "typed.js": "^2.1.0",
+      "use-intl": "^4.5.8",
+      "yet-another-react-lightbox": "^3.25.0"
+   },
+   "devDependencies": {
+      "@eslint/js": "^9.38.0",
+      "@types/node": "^24.9.2",
+      "@types/react": "19.2.2",
+      "@types/react-dom": "19.2.2",
+      "@typescript-eslint/eslint-plugin": "^8.46.2",
+      "@typescript-eslint/parser": "^8.46.2",
+      "autoprefixer": "^10.4.20",
+      "eslint": "^9.38.0",
+      "eslint-config-next": "^16.0.7",
+      "globals": "^16.5.0",
+      "husky": "^9.1.7",
+      "i18nexus-cli": "^3.5.0",
+      "postcss": "^8.5.6",
+      "prettier-plugin-tailwindcss": "^0.7.1",
+      "sharp": "0.34.5",
+      "tailwindcss": "^4.1.16",
+      "typescript": "^5.9.3"
+   },
+   "overrides": {
+      "@types/react": "19.2.2",
+      "@types/react-dom": "19.2.2"
+   },
+   "engines": {
+      "node": ">=20.9.0"
+   },
+   "packageManager": "pnpm@9.6.0"
 }
