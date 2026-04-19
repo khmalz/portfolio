@@ -73,8 +73,7 @@ const projectsCollection: projectType[] = [
       image: "/images/projects/football-quiz.webp",
       title: "football_quiz",
       tech: ["Flutter", "Getx"],
-      description:
-         "A quiz mobile application about football that offers a wide variety of categories. The app is designed to test users' knowledge of football through questions covering various aspects of the football world.",
+      description: "A quiz mobile application about football that offers a wide variety of categories. The app is designed to test users' knowledge of football through questions covering various aspects of the football world.",
       github: "https://github.com/khmalz/football-quiz",
    },
 ];
