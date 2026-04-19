@@ -2,6 +2,12 @@ import { experienceType } from "@/types/experienceType";
 
 const experiencesCollection: experienceType[] = [
    {
+      companyName: "UPT TIK UNJ",
+      position: "Web Developer",
+      startDate: "November 2025",
+      endDate: "Present",
+   },
+   {
       companyName: "INDI Technology",
       position: "Web Developer",
       startDate: "February 2023",
