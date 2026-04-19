@@ -5,7 +5,6 @@ const experiencesCollection: experienceType[] = [
       companyName: "UPT TIK UNJ",
       position: "Web Developer",
       startDate: "November 2025",
-      endDate: "Present",
    },
    {
       companyName: "INDI Technology",

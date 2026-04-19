@@ -39,7 +39,8 @@ export default function ExperienceSection() {
                         </span>
                         <h3 className="mb-1 text-lg font-semibold text-white">{experience.companyName}</h3>
                         <time className="mb-2 block text-xs leading-none font-normal text-slate-300 md:text-sm">
-                           {TranslatedStringDate(experience.startDate, format)} - {TranslatedStringDate(experience.endDate, format)}
+                           {TranslatedStringDate(experience.startDate, format)} -{" "}
+                           {experience.endDate ? TranslatedStringDate(experience.endDate, format) : trlns("period")}
                         </time>
                         <p className="text-base font-normal text-slate-200">{experience.position}</p>
                      </li>
