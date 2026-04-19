@@ -2,14 +2,6 @@ import { projectType } from "@/types/projectType";
 
 const projectsCollection: projectType[] = [
    {
-      image: "/images/projects/portfolio.webp",
-      title: "portfolio",
-      tech: ["NextJS", "Tailwind CSS"],
-      description: "Personal website and porfolio",
-      github: "https://github.com/khmalz/portfolio",
-      demo: "https://khmalz-portfolio.vercel.app",
-   },
-   {
       image: "/images/projects/tefa-digital.webp",
       title: "tefa_digital",
       tech: ["Laravel", "Bootstrap", "MySQL"],

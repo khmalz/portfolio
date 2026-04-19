@@ -54,9 +54,6 @@
     "ongkos_kirim": {
       "description": "A mobile application designed to check shipping prices and estimated delivery times based on origin and destination locations. The app allows users to easily get information on shipping costs and estimated delivery days, helping them to plan their shipments more efficiently"
     },
-    "portfolio": {
-      "description": "Personal website and portfolio"
-    },
     "quicktick": {
       "description": "An easy-to-use travel/bus ticket booking platform. The main goal is to simplify the ticket booking process, providing a fast, efficient user experience"
     },

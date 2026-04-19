@@ -54,9 +54,6 @@
     "ongkos_kirim": {
       "description": "Sebuah aplikasi mobile yang dirancang untuk mengecek harga pengiriman dan perkiraan waktu pengiriman berdasarkan lokasi asal dan tujuan. Aplikasi ini memungkinkan pengguna untuk dengan mudah mendapatkan informasi biaya ongkir dan estimasi hari pengiriman, membantu mereka dalam merencanakan pengiriman barang dengan lebih efisien"
     },
-    "portfolio": {
-      "description": "Website pribadi dan portofolio"
-    },
     "quicktick": {
       "description": "Platform pemesanan tiket perjalanan/bus yang mudah digunakan. Tujuan utamanya adalah untuk menyederhanakan proses pemesanan tiket, memberikan pengalaman pengguna yang cepat dan efisien"
     },
