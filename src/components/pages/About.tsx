@@ -51,7 +51,10 @@ export default function AboutSection() {
                         <div className="card-about group/card w-full overflow-hidden">
                            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"></div>
 
-                           <div className="pointer-events-none relative z-10 w-full max-w-14 rounded-xl p-2 transition-all duration-300 group-hover/card:bg-white/70 group-hover/card:scale-110 group-hover/card:shadow-[0_0_15px_#ffffff33]">
+                           <div
+                              className="pointer-events-none relative z-10 w-full max-w-14 rounded-xl p-2 transition-all duration-300 group-hover/card:bg-white/30 group-hover/card:scale-110 group-hover/card:shadow-[0_0_15px_var(--hover-color)]"
+                              style={{ "--hover-color": tech.fill } as React.CSSProperties}
+                           >
                               <SvgTech title={tech.title} fill={tech.fill} path={tech.path} />
                            </div>
                         </div>
