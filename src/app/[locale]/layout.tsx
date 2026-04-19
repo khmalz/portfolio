@@ -11,6 +11,8 @@ import { routing } from "@/i18n/routing";
 import { Locale } from "@/types/intlType";
 import { cacheLife } from "next/cache";
 
+import Background from "@/components/Background";
+
 const poppins = Poppins({
    subsets: ["latin"],
    weight: ["500"],
@@ -103,7 +105,10 @@ export default async function RootLayout({ children, params }: Props) {
    return (
       <html lang={validLocale}>
          <NextIntlClientProvider locale={validLocale} messages={messages}>
-            <body className={clsx(poppins.className, "bg-primary text-white")}>{children}</body>
+            <body className={clsx(poppins.className, "text-white")}>
+               <Background />
+               {children}
+            </body>
          </NextIntlClientProvider>
       </html>
    );

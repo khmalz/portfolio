@@ -23,30 +23,32 @@ export default function CertificateSection({ title, certificates }: { title: str
             </div>
             <div className="mt-10 flex flex-col">
                <TabGroup vertical>
-                  <div className="md:flex">
-                     <TabList className="flex flex-col space-y-2 rounded-xl p-5 md:w-2/5 md:justify-center">
+                  <div className="md:flex md:gap-8 lg:gap-10">
+                     <TabList className="flex w-full flex-col space-y-3 md:w-1/3">
                         {certificates.map((certificate: certificateType, index) => (
                            <Tab
                               key={index}
                               className={({ selected }) =>
                                  clsx(
-                                    "w-full rounded-lg py-5 text-sm leading-5 font-medium ring-white/60 ring-offset-2 ring-offset-blue-400 focus:ring focus:outline-hidden",
-                                    selected ? "bg-white text-blue-700 shadow-sm" : "bg-fourth text-white hover:bg-white/12 hover:text-white",
+                                    "w-full rounded-xl py-4 px-5 text-left text-sm md:text-base leading-relaxed font-medium transition-all duration-300 focus:outline-hidden",
+                                    selected
+                                       ? "bg-white/10 text-white shadow-[0_8px_32px_0_#00000033] border border-white/20 backdrop-blur-md scale-[1.02] translate-x-2"
+                                       : "bg-transparent text-slate-400 border border-transparent hover:bg-white/5 hover:text-white hover:translate-x-1"
                                  )
                               }>
                               {certificate.title}
                            </Tab>
                         ))}
                      </TabList>
-                     <TabPanels className="items-center justify-center p-5 text-black md:flex md:w-3/5">
+                     <TabPanels className="mt-8 flex w-full items-center justify-center focus:outline-hidden md:mt-0 md:w-2/3">
                         {certificates.map((certificate: certificateType, index) => (
-                           <TabPanel key={index} className="rounded-lg bg-white p-4 md:w-145">
+                           <TabPanel key={index} className="w-full rounded-2xl border border-white/10 bg-white/5 p-4 shadow-[0_8px_32px_0_#00000033] backdrop-blur-md transition-all duration-500 hover:shadow-[0_8px_32px_0_#ffffff1a] focus:outline-hidden md:p-6">
                               <Image
                                  onLoad={() => setIsImageLoaded(true)}
                                  loading="lazy"
                                  width={500}
                                  height={400}
-                                 className={clsx("w-full cursor-pointer rounded-lg border object-cover shadow-md transition-transform duration-500", isImageLoaded ? "filter-none" : "blur-xs filter")}
+                                 className={clsx("w-full aspect-[1.414/1] cursor-pointer rounded-xl object-contain shadow-lg transition-transform duration-500 hover:scale-[1.02]", isImageLoaded ? "filter-none" : "blur-xs filter")}
                                  src={certificate.image}
                                  alt={certificate.title}
                                  onClick={() => setOpen(true)}

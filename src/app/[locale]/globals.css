@@ -11,6 +11,9 @@
    --color-github: #181717;
    --color-instagram: #e4405f;
    --color-linkedin: #0a66c2;
+
+   --animate-blob: blob 10s infinite;
+   --animate-gradient-x: gradient-x 3s ease infinite;
 }
 
 @layer base {
@@ -57,7 +60,7 @@
    @apply relative inline-block text-white;
 
    &::after {
-      @apply absolute -bottom-1 left-0 h-1 w-full origin-bottom-right scale-x-0 bg-white transition-transform duration-300 ease-out content-[''];
+      @apply absolute -bottom-1 left-0 h-1 w-full origin-bottom-right scale-x-0 bg-white transition-transform duration-500 ease-out content-[''];
    }
 
    &:hover::after {
@@ -69,6 +72,44 @@
    }
 }
 
+@keyframes gradient-x {
+
+   0%,
+   100% {
+      background-position: 0% 50%;
+   }
+
+   50% {
+      background-position: 100% 50%;
+   }
+}
+
+@keyframes blob {
+   0% {
+      transform: translate(0px, 0px) scale(1);
+   }
+
+   33% {
+      transform: translate(15vw, -15vh) scale(1.2);
+   }
+
+   66% {
+      transform: translate(-10vw, 10vh) scale(0.8);
+   }
+
+   100% {
+      transform: translate(0px, 0px) scale(1);
+   }
+}
+
+@utility animation-delay-2000 {
+   animation-delay: 2s;
+}
+
+@utility animation-delay-4000 {
+   animation-delay: 4s;
+}
+
 @utility card-about {
-   @apply flex cursor-pointer flex-col items-center justify-center rounded bg-gray-400/30 px-5 py-5 backdrop-blur-lg transition-colors hover:bg-gray-600/70;
+   @apply relative flex cursor-pointer flex-col items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-5 shadow-[0_8px_32px_0_#00000033] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/10 hover:shadow-[0_8px_32px_0_#ffffff1a];
 }

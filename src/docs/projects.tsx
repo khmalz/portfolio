@@ -2,14 +2,6 @@ import { projectType } from "@/types/projectType";
 
 const projectsCollection: projectType[] = [
    {
-      image: "/images/projects/portfolio.webp",
-      title: "portfolio",
-      tech: ["NextJS", "Tailwind CSS"],
-      description: "Personal website and porfolio",
-      github: "https://github.com/khmalz/portfolio",
-      demo: "https://khmalz-portfolio.vercel.app",
-   },
-   {
       image: "/images/projects/tefa-digital.webp",
       title: "tefa_digital",
       tech: ["Laravel", "Bootstrap", "MySQL"],
@@ -81,8 +73,7 @@ const projectsCollection: projectType[] = [
       image: "/images/projects/football-quiz.webp",
       title: "football_quiz",
       tech: ["Flutter", "Getx"],
-      description:
-         "A quiz mobile application about football that offers a wide variety of categories. The app is designed to test users' knowledge of football through questions covering various aspects of the football world.",
+      description: "A quiz mobile application about football that offers a wide variety of categories. The app is designed to test users' knowledge of football through questions covering various aspects of the football world.",
       github: "https://github.com/khmalz/football-quiz",
    },
 ];
