@@ -47,9 +47,19 @@ export default function AboutSection() {
             <div className="flex w-full items-center md:w-1/2">
                <div className="mx-auto grid w-full grid-cols-2 gap-5 px-4 lg:grid-cols-3 lg:px-0 xl:grid-cols-4">
                   {techs.map((tech: svgTechType, index: number) => (
-                     <div className="card-about" key={index}>
-                        <div className="w-full max-w-10">
-                           <SvgTech title={tech.title} fill={tech.fill} path={tech.path} />
+                     <div key={index} className="group relative flex justify-center">
+                        <div className="card-about group/card w-full overflow-hidden">
+                           <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"></div>
+
+                           <div
+                              className="pointer-events-none relative z-10 w-full max-w-14 rounded-xl p-2 transition-all duration-300 group-hover/card:bg-white/30 group-hover/card:scale-110 group-hover/card:shadow-[0_0_15px_var(--hover-color)]"
+                              style={{ "--hover-color": tech.fill } as React.CSSProperties}
+                           >
+                              <SvgTech title={tech.title} fill={tech.fill} path={tech.path} />
+                           </div>
+                        </div>
+                        <div className="pointer-events-none absolute bottom-full mb-3 z-50 whitespace-nowrap rounded-lg border border-white/10 bg-third/95 px-3 py-1.5 text-sm font-medium text-white shadow-xl backdrop-blur-md opacity-0 transition-all duration-200 ease-in-out group-hover:-translate-y-1 group-hover:opacity-100">
+                           {tech.title}
                         </div>
                      </div>
                   ))}

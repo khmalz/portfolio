@@ -24,13 +24,13 @@ export default function Navbar() {
    ];
 
    return (
-      <nav className="fixed start-0 top-0 z-20 w-full bg-white/5 shadow-2xs backdrop-blur-xs">
-         <div className="container mx-auto">
-            <div className="flex items-center justify-between py-4">
-               <div className="flex w-full justify-between space-x-3 md:order-2 md:w-auto md:justify-start md:space-x-0">
+      <div className="fixed left-0 right-0 top-4 z-50 container md:top-6">
+         <nav className="w-full rounded-full border border-white/10 bg-white/5 px-6 py-3 shadow-[0_8px_32px_0_#00000033] backdrop-blur-lg transition-all duration-300">
+            <div className="flex items-center justify-between">
+               <div className="flex w-full justify-between space-x-3 md:order-2 md:w-auto md:justify-start md:space-x-4">
                   <Menu as="div" className="relative inline-block text-left md:hidden">
                      <div>
-                        <MenuButton className="inline-flex w-full justify-center rounded-md bg-white/20 px-4 py-2 text-sm font-medium text-white focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75">
+                        <MenuButton className="inline-flex w-full justify-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white shadow-inner transition-colors hover:bg-white/20 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75">
                            <svg className="h-5 w-5 fill-current text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 17 14">
                               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 1h15M1 7h15M1 13h15" />
                            </svg>
@@ -62,7 +62,7 @@ export default function Navbar() {
 
                   <Menu as="div" className="relative inline-block text-left">
                      <div>
-                        <MenuButton className="flex items-center rounded-md bg-white/20 px-3 py-2 text-sm font-medium text-white uppercase focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75">
+                        <MenuButton className="flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium uppercase text-white shadow-inner transition-colors hover:bg-white/20 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white/75">
                            {lang}
                            <svg viewBox="0 0 24 24" className="h-5 w-5 pb-0.5 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -98,10 +98,10 @@ export default function Navbar() {
                   </Menu>
                </div>
                <div className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto">
-                  <ul className="mt-4 flex flex-col rounded-lg p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
+                  <ul className="mt-4 flex flex-col font-medium md:mt-0 md:flex-row md:space-x-8 md:p-0">
                      {navLink.map((item: navLinkType, index: number) => (
                         <li key={index}>
-                           <a href={item.link} className="hover-underline capitalize">
+                           <a href={item.link} className="hover-underline capitalize text-slate-300 transition-colors hover:text-white">
                               {item.text}
                            </a>
                         </li>
@@ -109,7 +109,7 @@ export default function Navbar() {
                   </ul>
                </div>
             </div>
-         </div>
-      </nav>
+         </nav>
+      </div>
    );
 }
